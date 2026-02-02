@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About us | Berkat Engineering & Construction</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <title>Berkat Engineering & Construction</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -30,6 +29,11 @@
     .mosaic-text h2 span {
       color: #ff8c1a;
       font-size: 2.5rem;
+      margin-top: 300px!important;
+      
+    }
+    .mosaic-text p {
+      margin-top: 50px;
     }
 
     .mosaic-media {
@@ -48,6 +52,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      margin-top: 150px;
     }
 
     .about-stats {
@@ -125,7 +130,7 @@
       .mosaic-container{
         grid-template-columns: 1fr;
         text-align: center;
-        margin-top: 100px;
+        margin-top: 290px;
 
       }
       .stats-container,
@@ -363,14 +368,7 @@
       cursor: pointer;
     }
 
-    .footer ul li a {
-      color: #cbd5e1;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer ul li:hover,
-    .footer ul li a:hover {
+    .footer ul li:hover {
       color: #f59e0b;
     }
 
@@ -547,9 +545,7 @@ html, body {
   <div class="navbar">
     <!-- LOGO -->
     <div class="logo">
-      <a href="index.html">
-        <img src="assests/images/logo.jpg" alt="Logo">
-      </a>
+      <img src="assests/images/logo.jpg" alt="Logo">
     </div>
 
     <!-- HAMBURGER -->
@@ -572,7 +568,7 @@ html, body {
 
 
 <section class="pt-32 pb-24 bg-[url('assests/images/constrct.jpg')] bg-cover bg-center">
-  <div class="text-center text-white">
+ <div class="text-center text-white" data-aos="fade-down">
     <img src="assests/images/logo.jpg" class="w-32 mx-auto mb-6 animate-bounce">
     <h1 class="text-4xl md:text-5xl font-extrabold tracking-widest">
       ABOUT <br> BERKAT ENGINEERING & CONSTRUCTION
@@ -581,7 +577,7 @@ html, body {
 </section>
 
 <section class="relative -mt-16 pb-24">
-  <div class="max-w-6xl mx-auto bg-white/95 rounded-xl p-10 shadow-2xl">
+  <div class="max-w-6xl mx-auto bg-white/95 rounded-xl p-10 shadow-2xl"data-aos="fade-up">
 
     <h3 class="text-[#ff8c1a] text-xl font-bold mb-4">WHO WE ARE</h3>
     <p class="leading-relaxed text-gray-700">
@@ -619,15 +615,15 @@ html, body {
   </h2>
 
   <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
-    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition">
+    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition"data-aos="zoom-in">
       <i class="fas fa-handshake text-4xl text-[#ff8c1a] mb-4"></i>
       <p class="font-semibold">Client Relationship</p>
     </div>
-    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition">
+    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition"data-aos="zoom-in">
       <i class="fas fa-bullseye text-4xl text-[#ff8c1a] mb-4"></i>
       <p class="font-semibold">Design Centric</p>
     </div>
-    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition">
+    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition"data-aos="zoom-in">
       <i class="fas fa-truck-fast text-4xl text-[#ff8c1a] mb-4"></i>
       <p class="font-semibold">Fast Delivery</p>
     </div>
@@ -638,14 +634,14 @@ html, body {
   <video autoplay muted loop class="w-full h-[450px] object-cover">
     <source src="assests/videos/5674342-hd_1920_1080_30fps.mp4">
   </video>
-  <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white">
+  <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white"data-aos="fade-up">
     <h2 class="text-4xl font-bold mb-4">Ready to Build Your Vision?</h2>
     <p class="mb-6">Let’s turn your ideas into reliable structures.</p>
     <a href="contact.html" class="bg-[#ff8c1a] px-8 py-3 rounded font-semibold">Request a Quote</a>
   </div>
 </section>
 <section class="about-testimonial">
-  <div class="testimonial-container">
+  <div class="testimonial-container"data-aos="fade-left">
 
     <div class="testimonial-image">
       <img src="assests/images/construction-ganneston-construction.jpg" style="border-radius: 20px; width: 700px; height: 300px;">
@@ -654,8 +650,7 @@ html, body {
     <div class="testimonial-content">
       <span>What Our Clients Say</span>
       <p>
-        “From consultation to final handover, the team delivered
-        exceptional quality with transparency and professionalism.”
+      “From the initial consultation to the final handover, the team consistently demonstrated exceptional quality, transparency, and professionalism. Every stage of the project was handled with care, precision, and complete accountability. Their proactive updates and commitment to excellence made our experience seamless and highly dependable.”
       </p>
       <h4>Project Manager</h4>
       <small>Commercial Development</small>
@@ -667,17 +662,17 @@ html, body {
 <section class="about-mosaic">
   <div class="mosaic-container">
 
-    <div class="mosaic-text">
+    <div class="mosaic-text" data-aos="fade-right">
       <h2>Crafting Spaces,<br><span>Shaping Futures</span></h2>
       <p>
-        We deliver reliable construction solutions with precision,
-        innovation, and long-term value across residential, commercial,
-        and industrial projects.
+       Our Services
+
+We offer end-to-end construction solutions designed to bring your vision to life across residential, commercial, and industrial sectors. Our services begin with comprehensive project planning and expert consultation, ensuring clarity and confidence from day one. We specialize in crafting high-quality residential spaces, developing efficient and impactful commercial facilities, and delivering robust industrial structures built for performance and safety. Our structural engineering and design capabilities reinforce long-term durability, while our renovation and remodeling services help modernize and elevate existing environments. With strong project management, we maintain strict control over timelines, budgets, and compliance. Even after project completion, our dedicated post-construction support and maintenance services ensure reliability and lasting value for every client.
       </p>
       <a href="services.html" class="btn btn-warning">Our Services</a>
     </div>
 
-    <div class="mosaic-media">
+    <div class="mosaic-media"data-aos="fade-left">
       <!-- Video / Image 1 -->
       <div class="media large">
         <video autoplay muted loop playsinline>
@@ -696,14 +691,14 @@ html, body {
 <section class="about-stats">
   <div class="stats-container">
 
-    <div class="stats-left">
+    <div class="stats-left" data-aos="fade-right">
       <h2>Built on Experience.<br>Driven by Quality.</h2>
       <p>
         With years of industry expertise, our team delivers
         efficient, safe, and cost-effective construction solutions.
       </p>
     </div>
-
+<div data-aos="fade-left">
     <div class="stats-grid">
       <div class="stat-box">
         <h3>1600+</h3>
@@ -733,6 +728,7 @@ html, body {
     <h2 class="text-4xl font-extrabold tracking-wide mb-12">
       SERVICES WE PROVIDE
     </h2>
+<div data-aos="fade-up">
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 
@@ -771,7 +767,7 @@ html, body {
 
   <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
-  <div class="absolute top-1/3 left-10 text-white">
+  <div class="absolute top-1/3 left-10 text-white"data-aos="fade-right">
     <h1 class="text-5xl font-bold mb-4">Engineering Solutions</h1>
     <p class="text-xl mb-6">From concept to completion, we provide expert guidance.</p>
     <button class="bg-orange-500 px-6 py-3 text-white font-semibold rounded shadow">
@@ -793,7 +789,7 @@ html, body {
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
       <!-- Card 1 -->
-      <div class="shadow">
+      <div class="shadow"data-aos="fade-up">
         <img src="assests/images/road.jpg" class="w-full h-52 object-cover rounded-2xl" />
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Transportation Projects</h3>
@@ -802,7 +798,7 @@ html, body {
       </div>
 
       <!-- Card 2 -->
-      <div class="shadow">
+      <div class="shadow"data-aos="fade-up">
         <img src="assests/images/en.jpg" class="w-full h-52 object-cover rounded-2xl" />
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Environmental Projects</h3>
@@ -811,7 +807,7 @@ html, body {
       </div>
 
       <!-- Card 3 -->
-      <div class="shadow">
+      <div class="shadow"data-aos="fade-up">
         <img src="assests/images/urban.jpg" class="w-full h-52 object-cover rounded-2xl" />
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Urban Development Projects</h3>
@@ -830,7 +826,9 @@ html, body {
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
       <!-- Card 1 -->
-      <div>
+       <div data-aos="fade-up">
+       
+
         <img src="assests/images/sky.png" class="w-full h-64 object-cover rounded-2xl" />
         <h3 class="text-2xl text-orange-500 font-bold mt-4">
           Modern Architectural Mastery
@@ -841,8 +839,10 @@ html, body {
       </div>
 
       <!-- Card 2 -->
-      <div>
-        <img src="assests/images/talll build.png" class="w-full h-64 object-cover rounded-2xl" />
+       <div data-aos="fade-up">
+       
+
+        <img src="assests/images/ice -building.jpg" class="w-full h-64 object-cover rounded-2xl" />
         <h3 class="text-2xl text-orange-500 font-bold mt-4">
           Design & Build Excellence
         </h3>
@@ -852,7 +852,9 @@ html, body {
       </div>
 
       <!-- Card 3 -->
-      <div>
+  
+        <div data-aos="fade-up">
+
         <img src="assests/images/innovation.png" class="w-full h-64 object-cover rounded-2xl" />
         <h3 class="text-2xl text-orange-500 font-bold mt-4">
           Sustainable Building Solutions
@@ -871,7 +873,7 @@ html, body {
 
   <div class="absolute inset-0 bg-black bg-opacity-0"></div>
 
-  <div class="absolute top-1/3 left-12 text-black">
+  <div class="absolute top-1/3 left-12 text-black"data-aos="fade-up">
     <h2 class="text-5xl text-orange-500 mb-4">Design & Innovation</h2>
     <p class="text-xl  text-orange-700 leading-relaxed mb-6">
       We're dedicated to redefining spaces and turning dreams into reality.
@@ -886,7 +888,7 @@ html, body {
 
   <div class="absolute inset-0 bg-black/40"></div>
 
-  <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4" data-aos="fade-up">>
     
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
       EXPERIENCE QUALITY CONSTRUCTION
@@ -925,11 +927,11 @@ html, body {
     <div>
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="service.html">Services</a></li>
-        <li><a href="project.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Services</li>
+        <li>Projects</li>
+        <li>Contact</li>
       </ul>
     </div>
 
@@ -973,10 +975,28 @@ html, body {
 <script>
   function openMenu() {
     document.getElementById("navLinks").classList.add("active");
+    document.getElementById("menuOverlay").classList.add("active");
+    document.querySelector(".menu-toggle").classList.add("hidden");
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
   }
   function closeMenu() {
     document.getElementById("navLinks").classList.remove("active");
+    document.getElementById("menuOverlay").classList.remove("active");
+    document.querySelector(".menu-toggle").classList.remove("hidden");
+    document.body.style.overflow = "auto"; // Restore scrolling
   }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function (event) {
+    const navLinks = document.getElementById("navLinks");
+    const menuToggle = document.querySelector(".menu-toggle");
+
+    if (navLinks.classList.contains("active") &&
+      !navLinks.contains(event.target) &&
+      !menuToggle.contains(event.target)) {
+      closeMenu();
+    }
+  });
 
   const menuBtn = document.getElementById("menuBtn");
   const closeBtn = document.getElementById("closeBtn");
@@ -991,6 +1011,12 @@ html, body {
   function closeMenu() {
     document.getElementById("navLinks").classList.remove("active");
   }
+</script>
+<script>
+  AOS.init({
+    duration: 1200, 
+    once: true,   
+  });
 </script>
 
 </body>
