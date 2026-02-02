@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iconic Projects & Portfolio | Berkat Engineering & Construction</title>
+    <title>Iconic Projects | Berkat Engineering & Construction</title>
     <link rel="icon" type="image/png" href="logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -61,12 +61,12 @@
             height:72px;
         }
 
-        .logo a {
+        .logo a{
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: 0.3s ease;
         }
 
-        .logo a:hover {
+        .logo a:hover{
             transform: scale(1.05);
         }
 
@@ -273,10 +273,8 @@
 
         .img-container img {
             width: 100%; height: 100%; object-fit: cover;
-            transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: none;
         }
-
-        .project-card:hover img { transform: scale(1.1) rotate(1deg); }
 
         .project-overlay {
             position: absolute;
@@ -286,11 +284,10 @@
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: 0.4s;
+            transition: none;
             backdrop-filter: blur(4px);
+            display: none;
         }
-
-        .project-card:hover .project-overlay { opacity: 1; }
 
         .project-overlay a {
             color: #fff; text-decoration: none;
@@ -500,10 +497,10 @@
             cursor:pointer;
         }
 
-        .footer ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .footer ul li a{
+            color:#cbd5e1;
+            text-decoration:none;
+            transition:0.3s ease;
         }
 
         .footer ul li:hover,
@@ -704,7 +701,7 @@
         <div class="project-card residential" data-aos="fade-up" data-aos-delay="100">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Luxury Villa">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>The Grand Villas</h4>
@@ -715,7 +712,7 @@
         <div class="project-card commercial" data-aos="fade-up" data-aos-delay="200">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Office">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Skyline Corporate Hub</h4>
@@ -726,7 +723,7 @@
         <div class="project-card industrial" data-aos="fade-up" data-aos-delay="300">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" alt="Industrial">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Logistics Park X</h4>
@@ -737,7 +734,7 @@
         <div class="project-card residential" data-aos="fade-up" data-aos-delay="100">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070" alt="Penthouse">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Azure Penthouse</h4>
@@ -748,7 +745,7 @@
         <div class="project-card commercial" data-aos="fade-up" data-aos-delay="200">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069" alt="Modern Lobby">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Nova Tech Center</h4>
@@ -759,7 +756,7 @@
         <div class="project-card industrial" data-aos="fade-up" data-aos-delay="300">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070" alt="Factory">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Quantum Mfg Plant</h4>
@@ -770,7 +767,7 @@
         <div class="project-card residential" data-aos="fade-up" data-aos-delay="100">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070" alt="Eco House">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Green Haven Estate</h4>
@@ -781,7 +778,7 @@
         <div class="project-card commercial" data-aos="fade-up" data-aos-delay="200">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=2070" alt="Conference">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>The Beacon Plaza</h4>
@@ -792,7 +789,7 @@
         <div class="project-card industrial" data-aos="fade-up" data-aos-delay="300">
             <div class="img-container">
                 <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070" alt="Industrial Storage Facility">
-                <div class="project-overlay"><a href="#">Exploration</a></div>
+                <div class="project-overlay"></div>
             </div>
             <div class="card-content">
                 <h4>Iron-Clad Storage</h4>
@@ -906,7 +903,7 @@
             <p>Machine learning algorithms optimize resource allocation and predict potential project risks.</p>
         </div>
         <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
-            <i class="fas fa-drone"></i>
+            <i class="fas fa-helicopter"></i>
             <h4>Drone Surveying</h4>
             <p>Aerial mapping and real-time progress monitoring using advanced drone technology.</p>
         </div>
