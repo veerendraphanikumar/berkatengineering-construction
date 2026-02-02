@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Services | Berkat Engineering & Construction</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #ff8c1a;
+      --secondary-color: #ffa94d;
+      --dark-bg: #020617;
+      --nav-bg: #0f172a;
+      --text-light: #ffffff;
+      --text-muted: #cbd5e1;
+      --border-dark: #1e293b;
+      --body-bg: #f5f7fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    } 
+
+    body {
+      background: var(--body-bg);
+      color: #334155;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--nav-bg);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #0f172a, #1e293b);
+      z-index: 1000;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      padding: 8px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* LOGO */
+    .logo img {
+      height: 72px;
+    }
+
+    .logo a {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    /* NAV LINKS */
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #f59e0b;
+    }
+
+    /* underline */
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #f59e0b;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* MOBILE ICON */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* CLOSE BUTTON */
+    .close-btn {
+      display: none;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+
+
+    /* HERO SECTION */
+    .hero-services {
+      height: 60vh;
+      margin-top: 80px;
+      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* INTERACTIVE SERVICE CARDS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-color);
+      transform: translateY(100%);
+      transition: 0.4s ease;
+      z-index: 0;
+    }
+
+    .service-card:hover::before {
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      transition: 0.3s;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      color: var(--nav-bg);
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+      transition: 0.3s;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      transition: 0.3s;
+    }
+
+    .service-card:hover h3,
+    .service-card:hover p,
+    .service-card:hover .card-icon {
+      color: #000;
+    }
+
+    .view-more-btn {
+      background: var(--primary-color);
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+      white-space: nowrap;
+      font-size: 14px;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .view-more-btn:hover {
+      background: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    .service-card:hover .view-more-btn {
+      background: #000;
+      color: #fff;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 2% auto;
+      padding: 0;
+      border-radius: 20px;
+      width: 95%;
+      max-width: 1200px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      padding: 50px 80px 50px 40px;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-header h2 {
+      color: #000;
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .modal-header .modal-icon {
+      font-size: 70px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .close {
+      position: fixed;
+      right: 25px;
+      top: 25px;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10001;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .close:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-body {
+      padding: 50px 60px;
+    }
+
+    .modal-body h3 {
+      color: var(--nav-bg);
+      margin-bottom: 25px;
+      font-size: 28px;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 15px;
+    }
+
+    .modal-body p {
+      color: #64748b;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-size: 18px;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+    }
+
+    .modal-body ul li {
+      color: #475569;
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 17px;
+    }
+
+    .modal-body ul li::before {
+      content: '✓';
+      color: var(--primary-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 20px;
+    }
+
+    .service-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+
+    .feature-item {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 15px;
+      border-left: 5px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-item h4 {
+      color: var(--nav-bg);
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .feature-item p {
+      color: #64748b;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 98%;
+        margin: 5% auto;
+        max-height: 90vh;
+      }
+
+      .modal-header {
+        padding: 40px 70px 40px 25px;
+      }
+
+      .modal-header h2 {
+        font-size: 28px;
+      }
+
+      .modal-header .modal-icon {
+        font-size: 55px;
+      }
+
+      .close {
+        right: 15px;
+        top: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 30px;
+        position: fixed;
+        z-index: 10001;
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .modal-body {
+        padding: 35px 25px;
+      }
+
+      .modal-body h3 {
+        font-size: 24px;
+      }
+
+      .modal-body p {
+        font-size: 16px;
+      }
+
+      .modal-body ul li {
+        font-size: 15px;
+      }
+
+      .service-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .feature-item {
+        padding: 25px 20px;
+      }
+
+      .feature-item h4 {
+        font-size: 18px;
+      }
+
+      .feature-item p {
+        font-size: 15px;
+      }
+    }
+
+    /* INFRASTRUCTURE SECTION */
+    .infra {
+      background: #fff;
+    }
+
+    .infra-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .infra-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .infra-img {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .infra-img img {
+      width: 100%;
+      border-radius: 20px;
+     
+    }
+
+    /* SPECIALIZED SOLUTIONS */
+    .solutions {
+      background: var(--nav-bg);
+      color: #fff;
+    }
+
+    .solutions h2 {
+      color: #fff;
+    }
+
+    .sol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .sol-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px;
+      border-radius: 15px;
+      border: 1px solid var(--border-dark);
+      transition: 0.5s;
+      text-align: center;
+    }
+
+    .sol-item:hover {
+      background: var(--primary-color);
+      transform: scale(1.05);
+    }
+
+    .sol-item:hover h4,
+    .sol-item:hover p {
+      color: #000;
+    }
+
+    .sol-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    /* CONSULTATION SECTION */
+    .consult {
+      background: #f27a03d7;
+      color: #000;
+      text-align: center;
+    }
+
+    .consult h2 {
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .consult-btn {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .consult-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* SERVICES PROCESS SECTION */
+    .process-section {
+      background: #fff;
+      position: relative;
+    }
+
+    .process-intro {
+      text-align: center;
+      font-size: 18px;
+      color: #64748b;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      line-height: 1.6;
+    }
+
+    .process-timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .process-step {
+      position: relative;
+      margin-bottom: 80px;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .process-step:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .process-step:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .process-step:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .process-step:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .process-step:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .process-step:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    .process-step:nth-child(odd) {
+      flex-direction: row;
+    }
+
+    .process-step:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .step-number {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: #000;
+      z-index: 2;
+      box-shadow: 0 5px 15px rgba(255, 140, 26, 0.3);
+    }
+
+    .step-content {
+      width: 45%;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .process-step:nth-child(odd) .step-content {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    .process-step:nth-child(even) .step-content {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .step-content:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .step-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .step-icon i {
+      font-size: 20px;
+      color: #000;
+    }
+
+    .step-content:hover .step-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .step-content h3 {
+      font-size: 24px;
+      color: var(--nav-bg);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .step-content p {
+      font-size: 16px;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .step-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .step-features li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .step-features li::before {
+      content: '✓';
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    /* Process Benefits */
+    .process-benefits {
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .process-benefits h3 {
+      font-size: 32px;
+      color: var(--nav-bg);
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .process-benefits h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .benefit-item {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .benefit-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .benefit-item i {
+      font-size: 40px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .benefit-item h4 {
+      font-size: 20px;
+      color: var(--nav-bg);
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .benefit-item p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* FOOTER */
+    .footer {
+      background: radial-gradient(circle at top, #0b1220, #020617);
+      color: #cbd5e1;
+      padding: 60px 70px 25px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 50px;
+    }
+
+    /* BRAND */
+    .brand img {
+      width: 70px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+
+    .brand h1 {
+      color: #f59e0b;
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 320px;
+      color: #cbd5e1;
+    }
+
+    /* SOCIAL */
+    .social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social a {
+      width: 45px;
+      height: 45px;
+      background: #f59e0b;
+      color: #1a202c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 16px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social a:hover {
+      background: #fb923c;
+      transform: translateY(-3px);
+    }
+
+    /* HEADINGS */
+    .footer h3 {
+      color: #f59e0b;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    /* LISTS */
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #cbd5e1;
+    }
+
+    .footer ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer ul li:hover,
+    .footer ul li a:hover {
+      color: #f59e0b;
+    }
+
+    /* CONTACT */
+    .contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 16px;
+      color: #cbd5e1;
+    }
+
+    .contact span {
+      color: #f59e0b;
+      font-size: 16px;
+    }
+
+    /* DIVIDER */
+    .footer-line {
+      margin: 40px 0 15px;
+      border-top: 1px solid #374151;
+    }
+
+    /* BOTTOM */
+    .footer-bottom {
+      text-align: center;
+      font-size: 16px;
+      color: #9ca3af;
+    }
+
+    /* MENTOR SECTION */
+    .mentor-section {
+      text-align: center;
+      padding: 20px 0;
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    .mentor-section a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .mentor-section a:hover {
+      color: #ffa94d;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE STYLES */
+
+    /* Large tablets and small desktops */
+    @media(max-width:1024px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .footer {
+        padding: 50px 40px 20px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 30px;
+      }
+
+      .brand p {
+        max-width: 250px;
+        font-size: 16px;
+      }
+
+      .social a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      .footer h3 {
+        font-size: 20px;
+      }
+    }
+
+    /* Tablets */
+    @media(max-width:900px) {
+      .hero-services {
+        height: 50vh;
+        margin-top: 70px;
+      }
+
+      .hero-services h1 {
+        font-size: 28px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .service-card {
+        padding: 30px;
+      }
+
+      /* Ensure View More button stays on one line on large tablets */
+      .view-more-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+        min-width: 120px;
+        white-space: nowrap;
+      }
+
+      /* Ensure View More button stays on one line on tablets */
+      .view-more-btn {
+        font-size: 14px;
+        padding: 9px 18px;
+        min-width: 115px;
+        white-space: nowrap;
+      }
+
+      /* Process Section Tablet */
+      .process-intro {
+        font-size: 17px;
+        margin-bottom: 50px;
+      }
+
+      .process-step {
+        margin-bottom: 60px;
+      }
+
+      .step-number {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+
+      .step-content {
+        padding: 35px;
+      }
+
+      .step-content h3 {
+        font-size: 22px;
+      }
+
+      .step-content p {
+        font-size: 15px;
+      }
+
+      .step-features li {
+        font-size: 13px;
+      }
+
+      .process-benefits h3 {
+        font-size: 28px;
+        margin-bottom: 40px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+      }
+
+      .benefit-item {
+        padding: 35px 25px;
+      }
+
+      .benefit-item i {
+        font-size: 36px;
+      }
+
+      .benefit-item h4 {
+        font-size: 19px;
+      }
+
+      .infra-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .infra-img img {
+        box-shadow: 10px 10px 0 var(--secondary-color);
+      }
+
+      .sol-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .brand img {
+        width: 60px;
+      }
+
+      .brand h1 {
+        font-size: 22px;
+      }
+
+      .brand p {
+        font-size: 15px;
+        max-width: 100%;
+      }
+    }
+
+    
+    /* Mobile phones and small tablets */
+    @media(max-width:768px) {
+
+      /* Navigation */
+      .navbar {
+        padding: 8px 18px;
+      }
+
+      .logo img {
+        height: 56px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #0f172a;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 90px;
+        gap: 24px;
+        transition: 0.3s;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .close-btn {
+        display: block;
+      }
+
+      /* Content */
+      .container {
+        padding: 0 10px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .hero-services {
+        height: 40vh;
+        margin-top: 60px;
+      }
+
+      .hero-services h1 {
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .hero-services p {
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .service-card {
+        padding: 25px;
+      }
+
+      .service-card h3 {
+        font-size: 20px;
+      }
+
+      .service-card p {
+        font-size: 13px;
+      }
+
+      /* Ensure View More button stays on one line on mobile */
+      .view-more-btn {
+        font-size: 13px;
+        padding: 8px 16px;
+        min-width: 110px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Process Section Mobile */
+      .process-intro {
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
+
+      .process-timeline::before {
+        left: 30px;
+        transform: none;
+      }
+
+      .process-step {
+        flex-direction: column !important;
+        margin-bottom: 50px;
+        padding-left: 70px;
+      }
+
+      .step-number {
+        left: 30px;
+        transform: none;
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+      }
+
+      .step-content {
+        width: 100%;
+        margin: 0 !important;
+        padding: 25px;
+      }
+
+      .step-content h3 {
+        font-size: 20px;
+      }
+
+      .step-content p {
+        font-size: 14px;
+      }
+
+      .step-features li {
+        font-size: 13px;
+      }
+
+      .process-benefits h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .benefit-item {
+        padding: 30px 20px;
+      }
+
+      .benefit-item i {
+        font-size: 32px;
+      }
+
+      .benefit-item h4 {
+        font-size: 18px;
+      }
+
+      .benefit-item p {
+        font-size: 13px;
+      }
+
+      .sol-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .sol-item {
+        padding: 25px;
+      }
+
+      .consult h2 {
+        font-size: 24px;
+      }
+
+      .consult p {
+        font-size: 14px;
+      }
+
+      .consult-btn {
+        padding: 12px 30px;
+        font-size: 14px;
+      }
+
+      .footer {
+        padding: 40px 15px 20px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: left;
+      }
+
+      .brand img {
+        width: 50px;
+      }
+
+      .brand h1 {
+        font-size: 20px;
+      }
+
+      .brand p {
+        font-size: 14px;
+      }
+
+      .social {
+        justify-content: left;
+      }
+
+      .social a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+
+      .footer h3 {
+        font-size: 16px;
+      }
+
+      .footer ul li,
+      .contact li {
+        font-size: 14px;
+      }
+
+      .footer-bottom {
+        font-size: 14px;
+      }
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar">
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo">
+        </a>
+      </div>
+
+      <!-- HAMBURGER -->
+      <div class="menu-toggle" onclick="openMenu()">☰</div>
+
+      <!-- NAV LINKS -->
+      <nav class="nav-links" id="navLinks">
+        <span class="close-btn" onclick="closeMenu()">✖</span>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="project.html">Projects</a>
+        <a href="service.html" class="active">Services</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-services">
+    <div class="container">
+      <h1>Our Professional Expertise</h1>
+      <p>Delivering high-quality engineering and construction solutions.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Our Core Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="card-icon">🏗️</div>
+        <h3>Civil & Structural</h3>
+        <p>Expert engineering for structural integrity, foundation design, and heavy-duty civil works for diverse
+          environments.</p>
+        <button class="view-more-btn" onclick="openModal('civil-modal')">View More</button>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">🏢</div>
+        <h3>Building Construction</h3>
+        <p>End-to-end construction for residential, commercial, and industrial facilities with a focus on quality and
+          safety.</p>
+        <button class="view-more-btn" onclick="openModal('building-modal')">View More</button>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">⚡</div>
+        <h3>M&E Services</h3>
+        <p>Comprehensive Mechanical & Electrical solutions, including power distribution, HVAC, and fire protection
+          systems.</p>
+        <button class="view-more-btn" onclick="openModal('me-modal')">View More</button>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">🌉</div>
+        <h3>Infrastructure</h3>
+        <p>Specialized development for roads, bridges, and public utilities designed to support growing communities.</p>
+        <button class="view-more-btn" onclick="openModal('infrastructure-modal')">View More</button>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">📊</div>
+        <h3>Project Management</h3>
+        <p>Professional oversight from planning to delivery, ensuring timelines, budgets, and quality standards are
+          exceeded.</p>
+        <button class="view-more-btn" onclick="openModal('project-modal')">View More</button>
+      </div>
+      <div class="service-card">
+        <div class="card-icon">💻</div>
+        <h3>BIM & Digital Twin</h3>
+        <p>Advanced 3D modeling and digital simulation to optimize construction efficiency and long-term maintenance.
+        </p>
+        <button class="view-more-btn" onclick="openModal('bim-modal')">View More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SERVICES PROCESS SECTION -->
+  <section class="section process-section">
+    <div class="container">
+      <h2>Our Services Process</h2>
+      <p class="process-intro">We follow a systematic approach to ensure every project is delivered with excellence, on
+        time, and within budget.</p>
+
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Initial Consultation</h3>
+            <p>We begin with a comprehensive consultation to understand your project requirements, budget, and timeline.
+              Our experts conduct site visits and feasibility studies.</p>
+            <ul class="step-features">
+              <li>Free site assessment</li>
+              <li>Project scope definition</li>
+              <li>Budget estimation</li>
+              <li>Timeline planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <i class="fas fa-drafting-compass"></i>
+            </div>
+            <h3>Design & Planning</h3>
+            <p>Our engineering team creates detailed designs, technical drawings, and project plans using advanced CAD
+              and BIM technologies for optimal results.</p>
+            <ul class="step-features">
+              <li>3D modeling & visualization</li>
+              <li>Technical drawings</li>
+              <li>Material specifications</li>
+              <li>Regulatory compliance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h3>Permits & Approvals</h3>
+            <p>We handle all necessary permits, regulatory approvals, and compliance requirements, ensuring your project
+              meets all legal and safety standards.</p>
+            <ul class="step-features">
+              <li>Building permits</li>
+              <li>Environmental clearances</li>
+              <li>Safety certifications</li>
+              <li>Municipal approvals</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+            <h3>Construction Execution</h3>
+            <p>Our skilled workforce executes the construction with precision, following strict quality control measures
+              and safety protocols throughout the process.</p>
+            <ul class="step-features">
+              <li>Quality material sourcing</li>
+              <li>Skilled workforce deployment</li>
+              <li>Regular progress monitoring</li>
+              <li>Safety compliance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">05</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <h3>Quality Assurance</h3>
+            <p>Rigorous testing and inspection at every stage ensure the highest quality standards. We conduct
+              comprehensive quality checks before project handover.</p>
+            <ul class="step-features">
+              <li>Material testing</li>
+              <li>Structural inspections</li>
+              <li>System commissioning</li>
+              <li>Performance verification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">06</div>
+          <div class="step-content">
+            <div class="step-icon">
+              <i class="fas fa-key"></i>
+            </div>
+            <h3>Project Handover</h3>
+            <p>Upon completion, we provide comprehensive documentation, warranties, and ongoing support to ensure your
+              complete satisfaction with the delivered project.</p>
+            <ul class="step-features">
+              <li>Final inspections</li>
+              <li>Documentation handover</li>
+              <li>Warranty coverage</li>
+              <li>Maintenance support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process Benefits -->
+      <div class="process-benefits">
+        <h3>Why Choose Our Process?</h3>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <i class="fas fa-clock"></i>
+            <h4>On-Time Delivery</h4>
+            <p>Structured timeline management ensures projects are completed as scheduled</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-dollar-sign"></i>
+            <h4>Budget Control</h4>
+            <p>Transparent pricing and cost management throughout the project lifecycle</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Quality Assurance</h4>
+            <p>Rigorous quality checks at every stage ensure superior construction standards</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-headset"></i>
+            <h4>24/7 Support</h4>
+            <p>Continuous communication and support throughout the construction process</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section infra">
+    <div class="container infra-content">
+      <div class="infra-img">
+        <img src="assests/images/build.jpeg" alt="Infrastructure">
+      </div>
+      <div class="infra-text">
+        <h2>Public Infrastructure</h2>
+        <p>We partner with government bodies to develop essential community assets. Our expertise includes:</p><br>
+        <ul style="list-style-position: inside; color: #64748b; line-height: 2;">
+          <li>Bridge & Road Engineering</li>
+          <li>Urban Landscaping & Parks</li>
+          <li>Public Utility Buildings</li>
+          <li>Water Treatment Facilities</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section solutions">
+    <div class="container">
+      <h2>Specialized Solutions</h2>
+      <div class="sol-grid">
+        <div class="sol-item">
+          <h4>Green Building</h4>
+          <p>Sustainable materials and energy-saving designs.</p>
+        </div>
+        <div class="sol-item">
+          <h4>Interior Design</h4>
+          <p>Bespoke interior finishing and luxury fit-outs.</p>
+        </div>
+        <div class="sol-item">
+          <h4>Retrofitting</h4>
+          <p>Strengthening existing structures for modern safety.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="text-center">
+      <h2>Safety & Quality Assurance</h2>
+      <p style="max-width: 800px; margin: auto; color: #64748b;">
+        At BuildPro, safety isn't just a protocol—it's our culture. Every service we provide is backed by rigorous
+        <strong>ISO 9001</strong> quality checks and <strong>OSHA</strong> safety standards to ensure the protection of
+        our workforce and your investment.
+      </p>
+    </div>
+  </section>
+
+  <section class="section consult">
+    <div class="container">
+      <h2>Ready to start your next project?</h2>
+      <p>Our consultants are available for a free site visit and initial estimation.</p>
+      <br>
+      <a href="#" class="consult-btn">Book a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Modal Popups for Services -->
+  <!-- Civil & Structural Modal -->
+  <div id="civil-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal('civil-modal')">&times;</span>
+        <div class="modal-icon">🏗️</div>
+        <h2>Civil & Structural Engineering</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Comprehensive Structural Solutions</h3>
+        <p>Our civil and structural engineering services provide the foundation for safe, durable, and efficient construction projects. We specialize in designing and analyzing structures that can withstand various environmental conditions and loads.</p>
+        
+        <h3>Our Expertise Includes:</h3>
+        <ul>
+          <li>Structural analysis and design using advanced software</li>
+          <li>Foundation engineering for all soil conditions</li>
+          <li>Seismic and wind load analysis</li>
+          <li>Reinforced concrete and steel structure design</li>
+          <li>Structural health monitoring and assessment</li>
+          <li>Retrofitting and strengthening of existing structures</li>
+        </ul>
+
+        <div class="service-features">
+          <div class="feature-item">
+            <h4>Advanced Analysis</h4>
+            <p>Using cutting-edge software like SAP2000, ETABS, and STAAD Pro for precise structural calculations.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Code Compliance</h4>
+            <p>All designs comply with international building codes including ACI, AISC, and local regulations.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Quality Assurance</h4>
+            <p>Rigorous peer review process and third-party verification for all structural designs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Building Construction Modal -->
+  <div id="building-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal('building-modal')">&times;</span>
+        <div class="modal-icon">🏢</div>
+        <h2>Building Construction</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Complete Construction Solutions</h3>
+        <p>From concept to completion, we deliver exceptional building construction services for residential, commercial, and industrial projects. Our experienced team ensures quality craftsmanship and timely delivery.</p>
+        
+        <h3>Construction Services:</h3>
+        <ul>
+          <li>Residential construction and custom homes</li>
+          <li>Commercial buildings and office complexes</li>
+          <li>Industrial facilities and warehouses</li>
+          <li>High-rise construction and skyscrapers</li>
+          <li>Renovation and remodeling projects</li>
+          <li>Sustainable and green building construction</li>
+        </ul>
+
+        <div class="service-features">
+          <div class="feature-item">
+            <h4>Quality Materials</h4>
+            <p>We source premium materials from certified suppliers to ensure durability and longevity.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Skilled Workforce</h4>
+            <p>Our team consists of experienced craftsmen and certified construction professionals.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Safety First</h4>
+            <p>Strict adherence to OSHA safety standards and comprehensive safety training programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M&E Services Modal -->
+  <div id="me-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal('me-modal')">&times;</span>
+        <div class="modal-icon">⚡</div>
+        <h2>Mechanical & Electrical Services</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Integrated M&E Solutions</h3>
+        <p>Our mechanical and electrical engineering services ensure optimal building performance, energy efficiency, and occupant comfort. We design and install comprehensive systems tailored to your specific needs.</p>
+        
+        <h3>M&E Services Include:</h3>
+        <ul>
+          <li>HVAC system design and installation</li>
+          <li>Electrical power distribution and lighting</li>
+          <li>Fire protection and safety systems</li>
+          <li>Plumbing and water supply systems</li>
+          <li>Building automation and control systems</li>
+          <li>Energy management and efficiency solutions</li>
+        </ul>
+
+        <div class="service-features">
+          <div class="feature-item">
+            <h4>Energy Efficiency</h4>
+            <p>Smart systems designed to minimize energy consumption and reduce operational costs.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Smart Integration</h4>
+            <p>IoT-enabled systems for remote monitoring and automated control of building systems.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Maintenance Support</h4>
+            <p>Comprehensive maintenance programs to ensure optimal system performance and longevity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Infrastructure Modal -->
+  <div id="infrastructure-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal('infrastructure-modal')">&times;</span>
+        <div class="modal-icon">🌉</div>
+        <h2>Infrastructure Development</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Building Tomorrow's Infrastructure</h3>
+        <p>We specialize in developing critical infrastructure that supports community growth and economic development. Our projects enhance connectivity, improve quality of life, and promote sustainable development.</p>
+        
+        <h3>Infrastructure Projects:</h3>
+        <ul>
+          <li>Highway and road construction</li>
+          <li>Bridge design and construction</li>
+          <li>Water treatment and distribution systems</li>
+          <li>Sewage and drainage infrastructure</li>
+          <li>Public transportation facilities</li>
+          <li>Utility infrastructure and power lines</li>
+        </ul>
+
+        <div class="service-features">
+          <div class="feature-item">
+            <h4>Sustainable Design</h4>
+            <p>Environmentally conscious infrastructure solutions that minimize ecological impact.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Long-term Planning</h4>
+            <p>Future-ready infrastructure designed to accommodate growth and technological advancement.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Community Focus</h4>
+            <p>Infrastructure solutions that enhance community connectivity and economic opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Management Modal -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal('project-modal')">&times;</span>
+        <div class="modal-icon">📊</div>
+        <h2>Project Management</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Professional Project Oversight</h3>
+        <p>Our certified project managers ensure successful project delivery through systematic planning, execution, and control. We coordinate all aspects of construction projects to meet your objectives on time and within budget.</p>
+        
+        <h3>Project Management Services:</h3>
+        <ul>
+          <li>Project planning and scheduling</li>
+          <li>Cost estimation and budget management</li>
+          <li>Risk assessment and mitigation</li>
+          <li>Quality control and assurance</li>
+          <li>Stakeholder communication and reporting</li>
+          <li>Contract administration and procurement</li>
+        </ul>
+
+        <div class="service-features">
+          <div class="feature-item">
+            <h4>PMP Certified</h4>
+            <p>Our project managers hold internationally recognized PMP certifications and industry expertise.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Digital Tools</h4>
+            <p>Advanced project management software for real-time tracking and transparent communication.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Risk Management</h4>
+            <p>Proactive identification and mitigation of potential project risks and challenges.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIM & Digital Twin Modal -->
+  <div id="bim-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" onclick="closeModal('bim-modal')">&times;</span>
+        <div class="modal-icon">💻</div>
+        <h2>BIM & Digital Twin Technology</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Advanced Digital Construction Solutions</h3>
+        <p>Leverage cutting-edge Building Information Modeling (BIM) and Digital Twin technology to optimize construction processes, reduce costs, and improve project outcomes through data-driven insights and virtual collaboration.</p>
+        
+        <h3>BIM & Digital Services:</h3>
+        <ul>
+          <li>3D/4D/5D BIM modeling and visualization</li>
+          <li>Digital twin creation and simulation</li>
+          <li>Clash detection and resolution</li>
+          <li>Virtual reality walkthroughs</li>
+          <li>Quantity takeoffs and cost estimation</li>
+          <li>Facility management and maintenance planning</li>
+        </ul>
+
+        <div class="service-features">
+          <div class="feature-item">
+            <h4>Advanced Software</h4>
+            <p>Utilizing industry-leading tools like Autodesk Revit, Bentley MicroStation, and Trimble Connect.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Collaboration Platform</h4>
+            <p>Cloud-based collaboration enabling real-time coordination among all project stakeholders.</p>
+          </div>
+          <div class="feature-item">
+            <h4>Lifecycle Management</h4>
+            <p>Digital models that support the entire building lifecycle from design to demolition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- BRAND WITH LOGO -->
+      <div class="brand">
+        <img src="logo.png" alt="Berkat Engineering Logo">
+        <!-- <h2>Berkat Engineering</h2> -->
+         <h1>Berkat Engineering</h1>
+        <p>Building strength and engineering trust through quality construction solutions and professional service
+          excellence.</p>
+        <!-- SOCIAL MEDIA ICONS -->
+        <div class="social">
+          <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- SERVICES -->
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li>Civil & Structural</li>
+          <li>Building Construction</li>
+          <li>M&E Services</li>
+          <li>Infrastructure</li>
+          <li>Project Management</li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+        <h3>Contact Info</h3>
+        <ul class="contact">
+          <li><span>📍</span> 123 Construction Avenue<br>Engineering District</li>
+          <li><span>📞</span> +1 (555) 123-4567</li>
+          <li><span>✉️</span> info@berkatengineering.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+   
+
+    <div class="footer-bottom">
+      © 2024 Berkat Engineering & Construction. All rights reserved.
+    </div>
+      <div class="mentor-section">
+            A member of <a href="mentor.html" target="_blank">MENTOR</a> Group
+        </div>
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("navLinks").classList.add("active");
+    }
+    function closeMenu() {
+      document.getElementById("navLinks").classList.remove("active");
+    }
+
+    // Modal functionality
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+      document.body.style.overflow = "auto"; // Restore scrolling
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+          if (modal.style.display === "block") {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>

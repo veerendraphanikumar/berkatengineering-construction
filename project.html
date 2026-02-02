@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iconic Projects & Portfolio | Berkat Engineering & Construction</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #ff8c1a;
+            --secondary-color: #ffa94d;
+            --dark-bg: #020617;
+            --nav-bg: #1e293b;
+            --text-light: #ffffff;
+            --text-muted: #cbd5e1;
+            --border-dark: #1e293b;
+            --body-bg: #f5f7fa;
+            --card-shadow: 0 20px 40px rgba(255, 140, 26, 0.1);
+            --gradient-primary: linear-gradient(135deg, #ff8c1a, #ffa94d);
+            --gradient-secondary: linear-gradient(135deg, #e67e22, #f39c12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--body-bg);
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header{
+            position:fixed;
+            top:0;
+            width:100%;
+            background:linear-gradient(90deg,#0f172a,#1e293b);
+            z-index:100;
+        }
+
+        /* NAVBAR */
+        .navbar{
+            width:100%;
+            padding:8px 50px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+
+        /* LOGO */
+        .logo img{
+            height:72px;
+        }
+
+        .logo a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo a:hover {
+            transform: scale(1.05);
+        }
+
+        /* NAV LINKS */
+        .nav-links{
+            display:flex;
+            gap:36px;
+            align-items:center;
+        }
+
+        .nav-links a{
+            color:#ffffff;
+            text-decoration:none;
+            font-size:20px;
+            font-weight:500;
+            position:relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active{
+            color:#ff8c1a;
+        }
+
+        /* underline */
+        .nav-links a::after{
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:-6px;
+            width:0;
+            height:2px;
+            background:#ff8c1a;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after{
+            width:100%;
+        }
+
+        /* MOBILE ICON */
+        .menu-toggle{
+            display:none;
+            font-size:28px;
+            color:#fff;
+            cursor:pointer;
+        }
+
+        /* MOBILE VIEW */
+        @media(max-width:768px){
+            .navbar{
+                padding:8px 18px;
+            }
+
+            .logo img{
+                height:58px;
+            }
+
+            .menu-toggle{
+                display:block;
+            }
+
+            .nav-links{
+                position:fixed;
+                top:0;
+                right:-100%;
+                width:70%;
+                height:100vh;
+                background:#0f172a;
+                flex-direction:column;
+                align-items:center;
+                padding-top:90px;
+                gap:24px;
+                transition:0.3s;
+            }
+
+            .nav-links.active{
+                right:0;
+            }
+        }
+
+        /* CLOSE BUTTON */
+        .close-btn{
+            display:none;
+            position:absolute;
+            top:18px;
+            right:18px;
+            font-size:28px;
+            color:#fff;
+            cursor:pointer;
+        }
+
+        @media(max-width:768px){
+            .close-btn{
+                display:block;
+            }
+        }
+
+        /* --- PRELOADER --- */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: 0.5s;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--text-muted);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.6)),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070') center/cover fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 80px;
+        }
+
+        .hero h1 { font-size: clamp(40px, 8vw, 80px); line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 20px; opacity: 0.9; max-width: 700px; margin-bottom: 30px; }
+
+        /* --- STATS --- */
+        .stats-bar {
+            background: #fff;
+            padding: 50px 20px;
+            margin: -80px auto 0;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+        }
+
+        .stat-item h2 { font-size: 45px; color: var(--primary-color); margin-bottom: 5px; }
+        .stat-item p { font-weight: 600; color: #64748b; text-transform: uppercase; font-size: 12px; }
+
+        /* --- PROJECT GRID & FILTERS --- */
+        .section { padding: 100px 20px; }
+        .container { max-width: 1200px; margin: auto; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 42px; margin-bottom: 10px; }
+        .section-title span { color: var(--primary-color); }
+
+        .project-filters { text-align: center; margin-bottom: 40px; }
+        .project-filters button {
+            padding: 12px 30px;
+            border: none;
+            background: transparent;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s;
+            color: #64748b;
+        }
+        .project-filters button.active { color: var(--primary-color); }
+        .project-filters button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%; width: 30px; height: 3px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--card-shadow);
+            transition: 0.5s;
+        }
+
+        .project-card:hover { transform: translateY(-15px); }
+
+        .img-container {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover img { transform: scale(1.1) rotate(1deg); }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.4s;
+            backdrop-filter: blur(4px);
+        }
+
+        .project-card:hover .project-overlay { opacity: 1; }
+
+        .project-overlay a {
+            color: #fff; text-decoration: none;
+            padding: 12px 25px; border: 2px solid var(--primary-color);
+            border-radius: 50px; font-weight: 600;
+            transition: 0.3s;
+        }
+        .project-overlay a:hover { background: var(--primary-color); }
+
+        .card-content { padding: 30px; }
+        .card-content h4 { font-size: 20px; margin-bottom: 10px; color: var(--nav-bg); }
+        .card-content p { font-size: 14px; line-height: 1.6; color: #64748b; }
+
+        /* --- NEW SECTION: FEATURES --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .feature-box {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+        }
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 140, 26, 0.15);
+            border-color: var(--primary-color);
+        }
+        .feature-box i {
+            font-size: 48px;
+            color: var(--nav-bg);
+            margin-bottom: 20px;
+            transition: 0.4s;
+        }
+        .feature-box:hover i {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        .feature-box h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--nav-bg);
+        }
+        .feature-box p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* --- PROCESS --- */
+        .process-section { background: #f5f7fa; color: #334155; padding: 100px 20px; }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        .process-step { text-align: center; }
+        .process-step .icon-box {
+            width: 100px; height: 100px;
+            margin: 0 auto 25px;
+            background: rgba(255, 140, 26, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            color: var(--primary-color);
+            transition: 0.5s;
+        }
+        .process-step:hover .icon-box { background: var(--primary-color); color: #fff; transform: rotateY(360deg); }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials { background: #fff; padding: 100px 20px; }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .testimonial-card {
+            padding: 40px;
+            background: var(--body-bg);
+            border-radius: 15px;
+            position: relative;
+        }
+        .testimonial-card i { color: var(--primary-color); font-size: 30px; margin-bottom: 20px; }
+
+        /* --- ECO BANNER --- */
+        .eco-banner {
+            padding: 120px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070') center/cover fixed;
+            color: #fff; text-align: center;
+        }
+
+        /* --- CTA --- */
+        .cta-section { background: var(--primary-color); padding: 80px 20px; text-align: center; color: #fff; }
+        .cta-btn {
+            display: inline-block; margin-top: 30px;
+            padding: 18px 50px; background: var(--dark-bg);
+            color: #fff; text-decoration: none; border-radius: 50px;
+            font-weight: 700; transition: 0.4s;
+        }
+        .cta-btn:hover { background: #fff; color: var(--dark-bg); transform: translateY(-5px); }
+
+        /* --- SCROLL TOP --- */
+        #scrollTop {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px; background: var(--gradient-primary);
+            color: #fff; border-radius: 50%; display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; opacity: 0; transition: 0.4s; z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 140, 26, 0.3);
+        }
+        #scrollTop.active { opacity: 1; }
+        #scrollTop:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 140, 26, 0.4); }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 45px; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
+
+        /* FOOTER */
+        .footer{
+            background: radial-gradient(circle at top, #0b1220, #020617);
+            color:#cbd5e1;
+            padding:60px 70px 25px;
+        }
+
+        .footer-container{
+            display:grid;
+            grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+            gap:50px;
+        }
+
+        /* BRAND */
+        .brand img{
+            width:70px;
+            margin-bottom:10px;
+            transition: 0.3s;
+        }
+
+        .brand h2{
+            color:#ff8c1a;
+            margin:5px 0 12px;
+            font-size:26px;
+        }
+
+        .brand p { 
+            font-size:14px;
+            line-height:1.6;
+            max-width:320px;
+        }
+ 
+        /* SOCIAL */
+        .social{
+            display:flex;
+            gap:12px;
+            margin-top:20px;
+        }
+
+        .social a{
+            width:45px;
+            height:45px;
+            background:var(--gradient-primary);
+            color:#ffffff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius:50%;
+            font-size:16px;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        .social a:hover{
+            background:var(--gradient-secondary);
+            transform:translateY(-3px);
+        }
+
+        /* HEADINGS */
+        .footer h3{
+            color:#ff8c1a;
+            margin-bottom:18px;
+            font-size:18px;
+        }
+
+        /* LISTS */
+        .footer ul{
+            list-style:none;
+            padding:0;
+        }
+
+        .footer ul li{
+            margin-bottom:12px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .footer ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li:hover,
+        .footer ul li a:hover{
+            color:#ff8c1a;
+        }
+
+        /* CONTACT */
+        .contact li{
+            display:flex;
+            align-items:flex-start;
+            gap:10px;
+            margin-bottom:14px;
+            font-size:16px;
+        }
+
+        .contact span{
+            color:#ff8c1a;
+            font-size:16px;
+        }
+
+        /* DIVIDER */
+        .footer-line{
+            margin:40px 0 15px;
+            border-top:1px solid #1f2937;
+        }
+
+        /* BOTTOM */
+        .footer-bottom{
+            text-align:center;
+            font-size:18px;
+            color:#94a3b8;
+        }
+
+        /* MENTOR SECTION */
+        .mentor-section{
+            text-align: center;
+            padding: 20px 0;
+            color: #cbd5e1;
+            font-size: 16px;
+        }
+
+        .mentor-section a{
+            color: #ff8c1a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .mentor-section a:hover{
+            color: #ffa94d;
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE STYLES */
+        /* Medium screens: tablets */
+        @media(max-width:1024px){
+            .footer-container{
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+                gap:30px;
+            }
+            .brand p{
+                max-width:250px;
+                font-size:16px;
+            }
+            .social a{
+                width:40px;
+                height:40px;
+                font-size:20px;
+            }
+            .footer h3{
+                font-size:20px;
+            }
+        }
+
+        /* Smaller tablets / large phones */
+        @media(max-width:900px){
+            .footer-container{
+                grid-template-columns: 1fr 1fr;
+                gap:25px;
+            }
+            .brand img{
+                width:60px;
+            }
+            .brand h2{
+                font-size:22px;
+            }
+            .brand p{
+                font-size:15px;
+                max-width:100%;
+            }
+        }
+
+        /* Mobile screens */
+        @media(max-width:600px){
+            .footer-container{
+                grid-template-columns: 1fr;
+                gap:20px;
+            }
+            .footer{
+                padding:40px 25px 20px;
+            }
+            .brand img{
+                width:50px;
+            }
+            .brand h2{
+                font-size:20px;
+            }
+            .brand p{
+                font-size:14px;
+            }
+            .social{
+                justify-content:flex-start;
+            }
+            .social a{
+                width:35px;
+                height:35px;
+                font-size:18px;
+            }
+            .footer h3{
+                font-size:16px;
+            }
+            .footer ul li, .contact li{
+                font-size:16px;
+            }
+            .footer-bottom{
+                font-size:16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <div class="menu-toggle" onclick="openMenu()">☰</div>
+
+        <nav class="nav-links" id="navLinks">
+            <span class="close-btn" onclick="closeMenu()">✖</span>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="project.html" class="active">Projects</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+<div id="preloader"><div class="loader"></div></div>
+
+<section class="hero">
+    <h1 data-aos="zoom-out" data-aos-duration="1500">Precision in Every<br><span>Square Foot.</span></h1>
+    <p data-aos="fade-up" data-aos-delay="400">Award-winning engineering and sustainable design for the next generation of urban living.</p>
+</section>
+
+<div class="container">
+    <div class="stats-bar" data-aos="fade-up" data-aos-offset="0">
+        <div class="stat-item">
+            <h2 class="counter" data-target="250">0</h2>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="15">0</h2>
+            <p>Years of Legacy</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="48">0</h2>
+            <p>Active Sites</p>
+        </div>
+        <div class="stat-item">
+            <h2 class="counter" data-target="12">0</h2>
+            <p>Global Awards</p>
+        </div>
+    </div>
+</div>
+
+<section class="section container">
+    <div class="section-title" data-aos="fade-down">
+        <h2>Our <span>Landmark</span> Portfolio</h2>
+        <p>Excellence delivered across multiple industries.</p>
+    </div>
+
+    <div class="project-filters" data-aos="fade-up">
+        <button class="active" onclick="filterProjects('all')">All Works</button>
+        <button onclick="filterProjects('residential')">Residential</button>
+        <button onclick="filterProjects('commercial')">Commercial</button>
+        <button onclick="filterProjects('industrial')">Industrial</button>
+    </div>
+
+    <div class="project-grid">
+        
+        <div class="project-card residential" data-aos="fade-up" data-aos-delay="100">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Luxury Villa">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>The Grand Villas</h4>
+                <p>Luxury smart-homes featuring sustainable solar architecture and private green spaces.</p>
+            </div>
+        </div>
+
+        <div class="project-card commercial" data-aos="fade-up" data-aos-delay="200">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Office">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Skyline Corporate Hub</h4>
+                <p>A 30-story marvel of glass and steel in the business district with LEED certification.</p>
+            </div>
+        </div>
+
+        <div class="project-card industrial" data-aos="fade-up" data-aos-delay="300">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" alt="Industrial">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Logistics Park X</h4>
+                <p>High-efficiency automated warehousing systems for global supply chain leaders.</p>
+            </div>
+        </div>
+
+        <div class="project-card residential" data-aos="fade-up" data-aos-delay="100">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070" alt="Penthouse">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Azure Penthouse</h4>
+                <p>Modern minimalist living overlooking the coastline with panoramic glass walls.</p>
+            </div>
+        </div>
+
+        <div class="project-card commercial" data-aos="fade-up" data-aos-delay="200">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069" alt="Modern Lobby">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Nova Tech Center</h4>
+                <p>An innovative campus designed for tech giants, featuring open-air collaboration zones.</p>
+            </div>
+        </div>
+
+        <div class="project-card industrial" data-aos="fade-up" data-aos-delay="300">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070" alt="Factory">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Quantum Mfg Plant</h4>
+                <p>Precision manufacturing facility with climate-controlled labs and robotic integration.</p>
+            </div>
+        </div>
+
+        <div class="project-card residential" data-aos="fade-up" data-aos-delay="100">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070" alt="Eco House">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Green Haven Estate</h4>
+                <p>Eco-friendly community development utilizing 100% recycled greywater systems.</p>
+            </div>
+        </div>
+
+        <div class="project-card commercial" data-aos="fade-up" data-aos-delay="200">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=2070" alt="Conference">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>The Beacon Plaza</h4>
+                <p>Retail and business mixed-use plaza featuring iconic architectural arches.</p>
+            </div>
+        </div>
+
+        <div class="project-card industrial" data-aos="fade-up" data-aos-delay="300">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070" alt="Industrial Storage Facility">
+                <div class="project-overlay"><a href="#">Exploration</a></div>
+            </div>
+            <div class="card-content">
+                <h4>Iron-Clad Storage</h4>
+                <p>Heavy-duty industrial storage facility with reinforced seismic foundations.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section container" style="padding-top: 0;">
+    <div class="section-title" data-aos="fade-up">
+        <h2>Why <span>Partner</span> With Us?</h2>
+        <p>We bring more than just equipment to the construction site.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Safety First</h4>
+            <p>ISO 45001 certified protocols ensuring zero-harm environments for our workforce and clients.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-stopwatch"></i>
+            <h4>On-Time Delivery</h4>
+            <p>Advanced scheduling software allows us to hit milestones with 98% on-time project completion.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-hand-holding-usd"></i>
+            <h4>Transparent Pricing</h4>
+            <p>Detailed BOQs and open-book accounting mean no hidden costs or surprise variations.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-drafting-compass"></i>
+            <h4>Smart Design</h4>
+            <p>In-house engineering teams utilizing BIM Level 2 for clash detection and optimization.</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials container">
+    <div class="section-title" data-aos="fade-up">
+        <h2>What Our <span>Clients</span> Say</h2>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-quote-left"></i>
+            <p>BuildPro transformed our vision into a reality. The precision in their engineering is unmatched in the industry.</p>
+            <h5 style="margin-top: 20px;">- Sarah Johnson, CEO of TechFlow</h5>
+        </div>
+        <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-quote-left"></i>
+            <p>Their commitment to sustainability was the deciding factor for us. Our new headquarters is as green as it is beautiful.</p>
+            <h5 style="margin-top: 20px;">- Michael Chen, Urban Dev Group</h5>
+        </div>
+        <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-quote-left"></i>
+            <p>Exceptional project management. They delivered the industrial park three weeks ahead of schedule without sacrificing quality.</p>
+            <h5 style="margin-top: 20px;">- Robert Miller, Logistics Hub</h5>
+        </div>
+    </div>
+</section>
+
+<section class="process-section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2 style="color:#334155">How We <span>Build</span></h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step" data-aos="flip-left" data-aos-delay="100">
+                <div class="icon-box"><i class="fas fa-pencil-ruler"></i></div>
+                <h5>Design & BIM</h5>
+                <p>Digital twins for perfect construction.</p>
+            </div>
+            <div class="process-step" data-aos="flip-left" data-aos-delay="200">
+                <div class="icon-box"><i class="fas fa-hard-hat"></i></div>
+                <h5>Expert Execution</h5>
+                <p>Skilled craftsmanship on every floor.</p>
+            </div>
+            <div class="process-step" data-aos="flip-left" data-aos-delay="300">
+                <div class="icon-box"><i class="fas fa-certificate"></i></div>
+                <h5>Quality Guarantee</h5>
+                <p>Rigorous 500-point safety audits.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="eco-banner">
+    <div class="container" data-aos="zoom-in">
+        <h2>Building for the Planet</h2>
+        <p>By 2026, our goal is a 40% reduction in carbon footprint across all active sites.</p>
+        
+    </div>
+</section>
+
+<!-- NEW SECTION: Technology & Innovation -->
+<section class="section container">
+    <div class="section-title" data-aos="fade-up">
+        <h2>Technology & <span>Innovation</span></h2>
+        <p>Cutting-edge tools and methodologies driving construction excellence.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-cube"></i>
+            <h4>3D BIM Modeling</h4>
+            <p>Advanced Building Information Modeling for precise planning and clash detection before construction begins.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-robot"></i>
+            <h4>AI-Powered Analytics</h4>
+            <p>Machine learning algorithms optimize resource allocation and predict potential project risks.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-drone"></i>
+            <h4>Drone Surveying</h4>
+            <p>Aerial mapping and real-time progress monitoring using advanced drone technology.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Mobile Project Management</h4>
+            <p>Real-time collaboration tools keeping all stakeholders connected and informed.</p>
+        </div>
+    </div>
+</section>
+
+<!-- NEW SECTION: Awards & Recognition -->
+<section class="section" style="background: var(--body-bg); padding: 100px 20px;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Awards & <span>Recognition</span></h2>
+            <p>Industry recognition for our commitment to excellence and innovation.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-trophy"></i>
+                <h4>Construction Excellence Award 2023</h4>
+                <p>Recognized for outstanding project delivery and innovative construction techniques.</p>
+            </div>
+            <div class="feature-box" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-leaf"></i>
+                <h4>Green Building Champion</h4>
+                <p>Leading sustainable construction practices with LEED Platinum certifications.</p>
+            </div>
+            <div class="feature-box" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-users"></i>
+                <h4>Best Employer 2023</h4>
+                <p>Recognized for creating a safe, inclusive, and growth-oriented workplace.</p>
+            </div>
+            <div class="feature-box" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-handshake"></i>
+                <h4>Client Satisfaction Excellence</h4>
+                <p>Maintaining 98% client satisfaction rate across all completed projects.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEW SECTION: Project Timeline -->
+<section class="section container">
+    <div class="section-title" data-aos="fade-up">
+        <h2>Project <span>Timeline</span></h2>
+        <p>Our systematic approach ensures timely delivery of every project milestone.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
+        <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: var(--card-shadow); border-left: 5px solid var(--primary-color);" data-aos="fade-right" data-aos-delay="100">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">1</div>
+                <h4 style="color: var(--nav-bg);">Planning & Design</h4>
+            </div>
+            <p style="color: #64748b; line-height: 1.6;">Comprehensive site analysis, architectural design, and detailed project planning with stakeholder consultation.</p>
+            <small style="color: var(--primary-color); font-weight: 600;">Duration: 2-4 weeks</small>
+        </div>
+        
+           
+        <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: var(--card-shadow); border-left: 5px solid var(--secondary-color);" data-aos="fade-right" data-aos-delay="300">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">2</div>
+                <h4 style="color: var(--nav-bg);">Construction Phase</h4>
+            </div>
+            <p style="color: #64748b; line-height: 1.6;">Systematic construction execution with regular quality checks, safety protocols, and progress monitoring.</p>
+            <small style="color: var(--primary-color); font-weight: 600;">Duration: Project dependent</small>
+        </div>
+        <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: var(--card-shadow); border-left: 5px solid var(--primary-color);" data-aos="fade-right" data-aos-delay="400">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                <div style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">3</div>
+                <h4 style="color: var(--nav-bg);">Handover & Support</h4>
+            </div>
+            <p style="color: #64748b; line-height: 1.6;">Final inspections, documentation handover, and ongoing maintenance support for completed projects.</p>
+            <small style="color: var(--primary-color); font-weight: 600;">Duration: 1-2 weeks</small>
+        </div>
+    </div>
+</section>
+
+<!-- NEW SECTION: Team Expertise -->
+<section class="section" style="background: var(--dark-bg); color: #fff; padding: 100px 20px;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2 style="color: white;">Our <span>Expert Team</span></h2>
+            <p style="color: var(--text-muted);">Skilled professionals bringing decades of combined experience to every project.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px;">
+            <div style="text-align: center;" data-aos="fade-up" data-aos-delay="100">
+                <div style="width: 120px; height: 120px; background: var(--gradient-primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 40px;">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h4 style="margin-bottom: 10px;">Site Engineers</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Certified professionals ensuring quality and safety standards on every construction site.</p>
+            </div>
+            <div style="text-align: center;" data-aos="fade-up" data-aos-delay="200">
+                <div style="width: 120px; height: 120px; background: var(--gradient-primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 40px;">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <h4 style="margin-bottom: 10px;">Design Architects</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Creative minds transforming visions into detailed architectural blueprints and 3D models.</p>
+            </div>
+            <div style="text-align: center;" data-aos="fade-up" data-aos-delay="300">
+                <div style="width: 120px; height: 120px; background: var(--gradient-primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 40px;">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h4 style="margin-bottom: 10px;">Project Managers</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Experienced leaders coordinating resources, timelines, and stakeholder communications.</p>
+            </div>
+            <div style="text-align: center;" data-aos="fade-up" data-aos-delay="400">
+                <div style="width: 120px; height: 120px; background: var(--gradient-primary); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 40px;">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h4 style="margin-bottom: 10px;">Skilled Craftsmen</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Master tradespeople delivering precision workmanship in every construction detail.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEW SECTION: Sustainability Commitment -->
+<section class="section container">
+    <div class="section-title" data-aos="fade-up">
+        <h2>Sustainability <span>Commitment</span></h2>
+        <p>Building responsibly for future generations with eco-friendly practices and materials.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+        <div style="background: linear-gradient(135deg, #ecfdf5, #f0fdf4); padding: 35px; border-radius: 15px; border: 1px solid #22c55e;" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-recycle" style="font-size: 48px; color: #22c55e; margin-bottom: 20px;"></i>
+            <h4 style="color: var(--nav-bg); margin-bottom: 15px;">Waste Reduction</h4>
+            <p style="color: #64748b; line-height: 1.6;">Implementing circular economy principles with 85% construction waste recycling and reuse programs.</p>
+        </div>
+        <div style="background: linear-gradient(135deg, #eff6ff, #f0f9ff); padding: 35px; border-radius: 15px; border: 1px solid var(--primary-color);" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-solar-panel" style="font-size: 48px; color: var(--primary-color); margin-bottom: 20px;"></i>
+            <h4 style="color: var(--nav-bg); margin-bottom: 15px;">Renewable Energy</h4>
+            <p style="color: #64748b; line-height: 1.6;">Integrating solar panels, wind systems, and energy-efficient technologies in all new constructions.</p>
+        </div>
+        <div style="background: linear-gradient(135deg, #fef3c7, #fef9c3); padding: 35px; border-radius: 15px; border: 1px solid #f59e0b;" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-seedling" style="font-size: 48px; color: #f59e0b; margin-bottom: 20px;"></i>
+            <h4 style="color: var(--nav-bg); margin-bottom: 15px;">Green Materials</h4>
+            <p style="color: #64748b; line-height: 1.6;">Sourcing sustainable, locally-produced materials with low environmental impact and carbon footprint.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" style="background: var(--gradient-primary);">
+    <div class="container" data-aos="fade-up">
+        <h2>Ready to start your landmark project?</h2>
+        <p style="margin: 20px 0; font-size: 18px; opacity: 0.9;">Let's transform your vision into reality with our expert team and cutting-edge technology.</p>
+        <a href="contact.html" class="cta-btn">Contact Our Team</a>
+    </div>
+</section>
+
+<div id="scrollTop"><i class="fas fa-arrow-up"></i></div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="brand">
+            <img src="logo.png" alt="Berkat Engineering Logo">
+            <h2>Berkat Engineering</h2>
+            <p>Building strength and engineering excellence through innovative construction solutions and sustainable practices.</p>
+            <div class="social">
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Services</h3>
+            <ul>
+                <li>Civil & Structural</li>
+                <li>Building Construction</li>
+                <li>M&E Services</li>
+                <li>Infrastructure</li>
+                <li>Project Management</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Contact Info</h3>
+            <ul class="contact">
+                <li><span>📍</span> 123 Construction Avenue<br>Engineering District</li>
+                <li><span>📞</span> +1 (555) 123-4567</li>
+                <li><span>✉️</span> info@berkatengineering.com</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    
+
+    <div class="footer-bottom">
+        © 2024 Berkat Engineering & Construction. All rights reserved.
+    </div>
+      <div class="mentor-section">
+            A member of <a href="mentor.html" target="_blank">MENTOR</a> Group
+        </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    function openMenu(){
+        document.getElementById("navLinks").classList.add("active");
+    }
+    function closeMenu(){
+        document.getElementById("navLinks").classList.remove("active");
+    }
+
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 200
+    });
+
+    window.addEventListener('load', () => {
+        document.getElementById('preloader').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('preloader').style.display = 'none';
+        }, 500);
+        animateCounters();
+    });
+
+    window.addEventListener('scroll', () => {
+        const scrollBtn = document.getElementById('scrollTop');
+        
+        if (window.scrollY > 100) {
+            scrollBtn.classList.add('active');
+        } else {
+            scrollBtn.classList.remove('active');
+        }
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const updateCount = () => {
+                const inc = target / 50;
+                if (count < target) {
+                    count += inc;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            updateCount();
+        });
+    }
+
+    function filterProjects(category) {
+        const projects = document.querySelectorAll('.project-card');
+        const buttons = document.querySelectorAll('.project-filters button');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        projects.forEach(proj => {
+            proj.style.opacity = '0';
+            proj.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                if (category === 'all' || proj.classList.contains(category)) {
+                    proj.style.display = 'block';
+                    setTimeout(() => {
+                        proj.style.opacity = '1';
+                        proj.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    proj.style.display = 'none';
+                }
+            }, 300);
+        });
+    }
+</script>
+
+</body>
+</html>

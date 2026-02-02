@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildPro | Contact Us</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+<style>
+
+/* ROOT COLORS */
+:root{
+  --primary-color: #ff8c1a;
+  --secondary-color: #ffa94d;
+  --dark-bg: #020617;
+  --nav-bg: #0f172a;
+  --text-light: #ffffff;
+  --text-muted: #cbd5e1;
+  --border-dark: #1e293b;
+  --body-bg: #f5f7fa;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:var(--body-bg);
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:linear-gradient(90deg,#0f172a,#1e293b);
+  z-index:1000;
+}
+
+/* NAVBAR */
+.navbar{
+  width:100%;
+  padding:8px 50px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* LOGO */
+.logo img{
+  height:72px;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  gap:36px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:#ffffff;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:500;
+  position:relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#f59e0b;
+}
+
+/* underline */
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:#f59e0b;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+  width:100%;
+}
+
+/* MOBILE ICON */
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* MOBILE VIEW */
+@media(max-width:768px){
+  .navbar{
+    padding:8px 18px;
+  }
+
+  .logo img{
+    height:56px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:70%;
+    height:100vh;
+    background:#0f172a;
+    flex-direction:column;
+    align-items:center;
+    padding-top:90px;
+    gap:24px;
+    transition:0.3s;
+  }
+
+  .nav-links.active{
+    right:0;
+  }
+}
+
+/* CLOSE BUTTON */
+.close-btn{
+  display:none;
+  position:absolute;
+  top:18px;
+  right:18px;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+  .close-btn{
+    display:block;
+  }
+}
+
+
+
+
+/* CONTACT PAGE */
+.contact-hero{
+  min-height:100vh;
+  height:auto;
+  background:linear-gradient(to right,rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+  url('https://images.unsplash.com/photo-1556761175-4b46a572b786') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding: 120px 20px 80px;
+}
+
+.hero-content{
+  max-width: 900px;
+  width: 100%;
+}
+
+.contact-hero h1{
+  font-size:48px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-subtitle{
+  font-size: 24px;
+  color: var(--secondary-color);
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.hero-description{
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 50px;
+  color: #e2e8f0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-stats{
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.stat-item{
+  text-align: center;
+}
+
+.stat-number{
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.stat-label{
+  font-size: 14px;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-cta{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-primary, .cta-secondary{
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cta-primary{
+  background: var(--primary-color);
+  color: #000;
+}
+
+.cta-primary:hover{
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.cta-secondary{
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.cta-secondary:hover{
+  background: #fff;
+  color: var(--nav-bg);
+}
+
+/* HERO RESPONSIVE STYLES */
+@media(max-width: 768px){
+  .contact-hero{
+    min-height: 100vh;
+    padding: 100px 15px 60px;
+  }
+  
+  .contact-hero h1{
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+  
+  .hero-subtitle{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-description{
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-stats{
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .stat-number{
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  
+  .stat-label{
+    font-size: 12px;
+  }
+  
+  .hero-cta{
+    gap: 15px;
+  }
+  
+  .cta-primary, .cta-secondary{
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+}
+
+@media(max-width: 480px){
+  .contact-hero{
+    min-height: 100vh;
+    padding: 90px 15px 50px;
+  }
+  
+  .contact-hero h1{
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-subtitle{
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+  
+  .hero-description{
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+  
+  .hero-stats{
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 35px;
+  }
+  
+  .stat-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .stat-number{
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  
+  .stat-label{
+    font-size: 11px;
+  }
+  
+  .hero-cta{
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .cta-primary, .cta-secondary{
+    width: 200px;
+    justify-content: center;
+    padding: 14px 25px;
+  }
+}
+
+.contact-section{
+  display:flex;
+  gap:50px;
+  margin-top:50px;
+  padding-bottom:80px;
+}
+
+.contact-info, .contact-form{
+  flex:1;
+  background:#fff;
+  padding:40px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-info h2, .contact-form h2{
+  color:var(--nav-bg);
+  margin-bottom:20px;
+}
+
+.contact-info p{
+  color:#475569;
+  margin-bottom:15px;
+  line-height:1.7;
+}
+
+.contact-info p span{
+  font-weight:600;
+  color:var(--primary-color);
+}
+
+.contact-info a{
+  color:var(--primary-color);
+  text-decoration:none;
+}
+
+.contact-info a:hover{
+  text-decoration:underline;
+}
+
+.contact-form form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.contact-form input, .contact-form textarea{
+  padding:12px 15px;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
+  font-size:15px;
+  resize:none;
+}
+
+.contact-form button{
+  padding:14px 20px;
+  border:none;
+  border-radius:30px;
+  background:var(--primary-color);
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.contact-form button:hover{
+  background:var(--secondary-color);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .contact-section{ flex-direction:column; }
+}
+
+/* LOCATION SECTION */
+.location-section{
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 80px 0;
+  margin-top: 50px;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.location-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.location-info h2{
+  color: var(--nav-bg);
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.location-info > p{
+  color: #475569;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.location-details{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.location-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.location-item:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.location-item i{
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-top: 5px;
+  min-width: 24px;
+}
+
+.location-item h4{
+  color: var(--nav-bg);
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.location-item p{
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.location-map{
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.location-map iframe{
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+
+/* LOCATION RESPONSIVE STYLES */
+@media(max-width: 1024px){
+  .container{
+    padding: 0 30px;
+  }
+  
+  .location-content{
+    gap: 40px;
+  }
+  
+  .location-info h2{
+    font-size: 32px;
+  }
+  
+  .location-info > p{
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 900px){
+  .location-section{
+    padding: 60px 0;
+  }
+  
+  .location-content{
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .location-info h2{
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .location-info > p{
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .location-map iframe{
+    height: 350px;
+  }
+}
+
+@media(max-width: 768px){
+  .container{
+    padding: 0 20px;
+  }
+  
+  .location-section{
+    padding: 50px 0;
+  }
+  
+  .location-details{
+    gap: 20px;
+  }
+  
+  .location-item{
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .location-item i{
+    margin-top: 0;
+  }
+  
+  .location-info h2{
+    font-size: 24px;
+  }
+  
+  .location-info > p{
+    font-size: 15px;
+  }
+  
+  .location-map iframe{
+    height: 300px;
+  }
+}
+
+@media(max-width: 480px){
+  .location-section{
+    padding: 40px 0;
+    margin-top: 30px;
+  }
+  
+  .container{
+    padding: 0 15px;
+  }
+  
+  .location-content{
+    gap: 30px;
+  }
+  
+  .location-info h2{
+    font-size: 22px;
+  }
+  
+  .location-info > p{
+    font-size: 14px;
+  }
+  
+  .location-item{
+    padding: 15px;
+  }
+  
+  .location-item h4{
+    font-size: 16px;
+  }
+  
+  .location-item p{
+    font-size: 14px;
+  }
+  
+  .location-map iframe{
+    height: 250px;
+  }
+}
+
+/* FOOTER */
+.footer{
+  background: radial-gradient(circle at top, #0b1220, #020617);
+  color:#cbd5e1;
+  padding:60px 70px 25px;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+  gap:50px;
+}
+
+/* BRAND */
+.brand img{
+  width:70px;
+  margin-bottom:10px;
+  transition: 0.3s;
+}
+
+.brand h2{
+  color:#f59e0b;
+  margin:5px 0 12px;
+  font-size:26px;
+}
+
+.brand p{
+  font-size:14px;
+  line-height:1.6;
+  max-width:320px;
+}
+
+/* SOCIAL */
+.social{
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
+
+.social a{
+  width:45px;
+  height:45px;
+  background:#f59e0b;
+  color:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:16px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.social a:hover{
+  background:#fb923c;
+  transform:translateY(-3px);
+}
+
+/* HEADINGS */
+.footer h3{
+  color:#f59e0b;
+  margin-bottom:18px;
+  font-size:18px;
+}
+
+/* LISTS */
+.footer ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer ul li{
+  margin-bottom:12px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.footer ul li:hover{
+  color:#f59e0b;
+}
+
+/* CONTACT */
+.contact li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:14px;
+  font-size:16px;
+}
+
+.contact span{
+  color:#f59e0b;
+  font-size:16px;
+}
+
+/* DIVIDER */
+.footer-line{
+  margin:40px 0 15px;
+  border-top:1px solid #1f2937;
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  font-size:18px;
+  color:#94a3b8;
+}
+
+/* MENTOR SECTION */
+.mentor-section{
+  text-align: center;
+  padding: 20px 0;
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.mentor-section a{
+  color: #f59e0b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mentor-section a:hover{
+  color: #ffa94d;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE STYLES */
+/* Medium screens: tablets */
+@media(max-width:1024px){
+  .footer-container{
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap:30px;
+  }
+  .brand p{
+    max-width:250px;
+    font-size:16px;
+  }
+  .social a{
+    width:40px;
+    height:40px;
+    font-size:20px;
+  }
+  .footer h3{
+    font-size:20px;
+  }
+}
+
+/* Smaller tablets / large phones */
+@media(max-width:900px){
+  .footer-container{
+    grid-template-columns: 1fr 1fr;
+    gap:25px;
+  }
+  .brand img{
+    width:60px;
+  }
+  .brand h2{
+    font-size:22px;
+  }
+  .brand p{
+    font-size:15px;
+    max-width:100%;
+  }
+}
+
+/* Mobile screens */
+@media(max-width:600px){
+  .footer-container{
+    grid-template-columns: 1fr;
+    gap:20px;
+  }
+  .footer{
+    padding:40px 25px 20px;
+  }
+  .brand img{
+    width:50px;
+  }
+  .brand h2{
+    font-size:20px;
+  }
+  .brand p{
+    font-size:14px;
+  }
+  .social{
+    justify-content:flex-start;
+  }
+  .social a{
+    width:35px;
+    height:35px;
+    font-size:18px;
+  }
+  .footer h3{
+    font-size:16px;
+  }
+  .footer ul li, .contact li{
+    font-size:16px;
+  }
+  .footer-bottom{
+    font-size:16px;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+
+    <!-- HAMBURGER -->
+    <div class="menu-toggle" onclick="openMenu()">☰</div>
+
+    <!-- NAV LINKS -->
+    <nav class="nav-links" id="navLinks">
+      <span class="close-btn" onclick="closeMenu()">✖</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="project.html">Projects</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+
+ 
+
+<section class="contact-hero">
+  <div class="hero-content">
+    <h1>Contact us</h1>
+    <p class="hero-subtitle">Let's Build Your Dream Project Together</p>
+    <p class="hero-description">Ready to start your construction journey? Our expert team is here to help you every step of the way. From initial consultation to project completion, we're committed to delivering excellence.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Projects Completed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">15+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Support Available</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact-form" class="cta-primary">Get Free Quote</a>
+      <a href="tel:+919876543210" class="cta-secondary">
+        <i class="fas fa-phone"></i>
+        Call Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section container" id="contact-form">
+  <!-- Contact Info -->
+  <div class="contact-info">
+    <h2>Get in Touch</h2>
+    <p><span>📍 Address:</span> Hyderabad, India</p>
+    <p><span>📞 Phone:</span> +91 98765 43210</p>
+    <p><span>✉ Email:</span> <a href="mailto:info@buildpro.com">info@buildpro.com</a></p>
+    <p>We are always ready to discuss your project requirements. Reach out and let's build something great together!</p>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- LOCATION SECTION -->
+<section class="location-section">
+  <div class="container">
+    <div class="location-content">
+      <div class="location-info">
+        <h2>Our Location</h2>
+        <p>Visit us at our office in Hyderabad. We're conveniently located and easily accessible by public transport.</p>
+        <div class="location-details">
+          <div class="location-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Address</h4>
+              <p>123 Construction Avenue<br>Engineering District, Hyderabad<br>Telangana, India - 500001</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <i class="fas fa-directions"></i>
+            <div>
+              <h4>Getting Here</h4>
+              <p>Near Metro Station, Bus Stop available<br>Parking facilities available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="location-map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.3160407887!2d78.24323171640625!3d17.41262995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin"
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- BRAND WITH LOGO -->
+    <div class="brand">
+      <img src="logo.png" alt="Berkat Engineering Logo">
+      <h2>Berkat Engineering</h2>
+      <p>Building strength and engineering trust through quality construction solutions and professional service excellence.</p>
+      <!-- SOCIAL MEDIA ICONS -->
+      <div class="social">
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h3>Quick Links</h3>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Services</li>
+        <li>Projects</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <!-- SERVICES -->
+    <div>
+      <h3>Services</h3>
+      <ul>
+        <li>Civil & Structural</li>
+        <li>Building Construction</li>
+        <li>M&E Services</li>
+        <li>Infrastructure</li>
+        <li>Project Management</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h3>Contact Info</h3>
+      <ul class="contact">
+        <li><span>📍</span> 123 Construction Avenue<br>Engineering District</li>
+        <li><span>📞</span> +1 (555) 123-4567</li>
+        <li><span>✉️</span> info@berkatengineering.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-line"></div>
+
+
+
+  <div class="footer-bottom">
+    © 2024 Berkat Engineering & Construction. All rights reserved.
+  </div>
+    <div class="mentor-section">
+            A member of <a href="mentor.html" target="_blank">MENTOR</a> Group
+        </div>
+</footer>
+
+<script>
+function openMenu(){
+  document.getElementById("navLinks").classList.add("active");
+}
+function closeMenu(){
+  document.getElementById("navLinks").classList.remove("active");
+}
+</script>
+
+
+</body>
+</html>

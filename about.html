@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us | Berkat Engineering & Construction</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .about-mosaic {
+      padding: 6rem 1.5rem;
+      background: #f9fafb;
+    }
+
+    .mosaic-container {
+      max-width: 1800px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .mosaic-text h2 span {
+      color: #ff8c1a;
+      font-size: 2.5rem;
+    }
+
+    .mosaic-media {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .media {
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .media video,
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-stats {
+      padding: 6rem 1rem;
+      font-size: x-large;
+      
+    }
+
+    .stats-container {
+      max-width: 1800px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      font-size: xx-large;
+    }
+
+    .stat-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-testimonial {
+      padding: 6rem 1.5rem;
+      background: #fff;
+    }
+
+    .testimonial-container {
+      max-width: 1800px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      align-items: center;
+      height: 200px;
+    }
+
+    .about-cta {
+      padding: 6rem 1.5rem;
+    }
+
+    .cta-box {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .cta-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cta-content {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+
+      .mosaic-container{
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 100px;
+
+      }
+      .stats-container,
+      .testimonial-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 90px;
+      }
+
+      .mosaic-media {
+        grid-template-columns: 1fr;
+        margin-top: 60px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+   
+
+    /* ROOT COLORS */
+    :root {
+      --primary-color: #ff8c1a;
+      --secondary-color: #ffa94d;
+      --dark-bg: #020617;
+      --nav-bg: #0f172a;
+      --text-light: #ffffff;
+      --text-muted: #cbd5e1;
+      --border-dark: #1e293b;
+      --body-bg: #f5f7fa;
+    }
+
+    * {
+      font-family: 'Poppins', sans-serif;
+      font-size: large;
+    }
+
+    body {
+      background: var(--body-bg);
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #0f172a, #1e293b);
+      z-index: 1000;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      padding: 8px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* LOGO */
+    .logo img {
+      height: 72px;
+    }
+
+    /* NAV LINKS */
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 20px ;
+      font-weight: 500 ;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #f59e0b;
+    }
+
+    /* underline */
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #f59e0b;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* MOBILE ICON */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* MOBILE VIEW */
+    @media(max-width:768px) {
+      .navbar {
+        padding: 8px 18px;
+      }
+
+      .logo img {
+        height: 56px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: #0f172a;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 90px;
+        gap: 24px;
+        transition: 0.3s;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+    }
+
+    /* CLOSE BUTTON */
+    .close-btn {
+      display: none;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media(max-width:768px) {
+      .close-btn {
+        display: block;
+      }
+    }
+
+    /* FOOTER */
+    .footer {
+      background: radial-gradient(circle at top, #0b1220, #020617);
+      color: #cbd5e1;
+      padding: 60px 70px 25px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+      gap: 50px;
+    }
+
+    /* BRAND */
+    .brand img {
+      width: 70px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+
+    .brand h2 {
+      color: #f59e0b;
+      margin: 5px 0 12px;
+      font-size: 26px;
+    }
+
+    .brand p {
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    /* SOCIAL */
+    .social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social a {
+      width: 45px;
+      height: 45px;
+      background: #f59e0b;
+      color: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 16px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social a:hover {
+      background: #fb923c;
+      transform: translateY(-3px);
+    }
+
+    /* HEADINGS */
+    .footer h3 {
+      color: #f59e0b;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    /* LISTS */
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .footer ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer ul li:hover,
+    .footer ul li a:hover {
+      color: #f59e0b;
+    }
+
+    /* CONTACT */
+    .contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    .contact span {
+      color: #f59e0b;
+      font-size: 16px;
+    }
+
+    /* DIVIDER */
+    .footer-line {
+      margin: 40px 0 15px;
+      border-top: 1px solid #1f2937;
+    }
+
+    /* BOTTOM */
+    .footer-bottom {
+      text-align: center;
+      font-size: 18px;
+      color: #94a3b8;
+    }
+
+    /* MENTOR SECTION */
+    .mentor-section {
+      text-align: center;
+      padding: 20px 0;
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    .mentor-section a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .mentor-section a:hover {
+      color: #ffa94d;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE STYLES */
+    /* Medium screens: tablets */
+    @media(max-width:1024px) {
+      .footer-container {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 30px;
+      }
+
+      .brand p {
+        max-width: 250px;
+        font-size: 16px;
+      }
+
+      .social a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      .footer h3 {
+        font-size: 20px;
+      }
+    }
+
+    /* Smaller tablets / large phones */
+    @media(max-width:900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .brand img {
+        width: 60px;
+      }
+
+      .brand h2 {
+        font-size: 22px;
+      }
+
+      .brand p {
+        font-size: 15px;
+        max-width: 100%;
+      }
+    }
+
+    /* Mobile screens */
+    @media(max-width:600px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .footer {
+        padding: 40px 25px 20px;
+      }
+
+      .brand img {
+        width: 50px;
+      }
+
+      .brand h2 {
+        font-size: 20px;
+      }
+
+      .brand p {
+        font-size: 14px;
+      }
+
+      .social {
+        justify-content: flex-start;
+      }
+
+      .social a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+
+      .footer h3 {
+        font-size: 16px;
+      }
+
+      .footer ul li,
+      .contact li {
+        font-size: 16px;
+      }
+
+      .footer-bottom {
+        font-size: 16px;
+      }
+    }
+    /* STOP horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden !important;
+}
+
+/* Images that break layout */
+.testimonial-image img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Containers that were too wide */
+.mosaic-container,
+.stats-container,
+.testimonial-container {
+    max-width: 100% !important;
+}
+
+/* Grid forced into one column on very small screens */
+@media (max-width: 360px) {
+    .mosaic-media {
+        grid-template-columns: 1fr !important;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+  </style>
+</head>
+
+
+<header>
+  <div class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="assests/images/logo.jpg" alt="Logo">
+      </a>
+    </div>
+
+    <!-- HAMBURGER -->
+    <div class="menu-toggle" onclick="openMenu()">☰</div>
+
+
+    <nav class="nav-links" id="navLinks">
+      <span class="close-btn" onclick="closeMenu()">✖</span>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="project.html">Projects</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+
+  </div>
+</header>
+
+
+
+<section class="pt-32 pb-24 bg-[url('assests/images/constrct.jpg')] bg-cover bg-center">
+  <div class="text-center text-white">
+    <img src="assests/images/logo.jpg" class="w-32 mx-auto mb-6 animate-bounce">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-widest">
+      ABOUT <br> BERKAT ENGINEERING & CONSTRUCTION
+    </h1>
+  </div>
+</section>
+
+<section class="relative -mt-16 pb-24">
+  <div class="max-w-6xl mx-auto bg-white/95 rounded-xl p-10 shadow-2xl">
+
+    <h3 class="text-[#ff8c1a] text-xl font-bold mb-4">WHO WE ARE</h3>
+    <p class="leading-relaxed text-gray-700">
+      Berkat Engineering & Construction Sdn. Bhd. Established in 2018 (approx.),
+      Berkat Engineering & Construction Sdn. Bhd. is a Malaysia-registered private
+      engineering and construction firm delivering reliable and efficient building
+      and civil solutions to clients across industries.
+    </p>
+
+    <h3 class="text-[#ff8c1a] text-xl font-bold mt-8 mb-4">WE’RE DIFFERENT THAN THE REST</h3>
+    <p class="text-gray-700 leading-relaxed">
+      Berkat Engineering & Construction is committed to delivering turnkey engineering
+      and construction solutions that meet international standards of safety, quality,
+      and performance.
+    </p>
+
+    <h3 class="text-[#ff8c1a] text-xl font-bold mt-8 mb-4">VISION & MISSION</h3>
+    <ul class="list-disc pl-6 text-gray-700 space-y-2">
+      <li>Provide cost-effective and sustainable construction solutions.</li>
+      <li>Maintain excellent client relationships.</li>
+      <li>Uphold highest safety & quality standards.</li>
+    </ul>
+
+    <div class="text-center mt-10">
+      <a href="contact.html" class="bg-[#ff8c1a] hover:bg-orange-400 text-white font-semibold px-6 py-3 rounded">
+        CONTACT US </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-24 bg-[#f9fafb]">
+  <h2 class="text-center text-3xl font-bold mb-16">
+    Why Berkat Engineering & Construction
+  </h2>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition">
+      <i class="fas fa-handshake text-4xl text-[#ff8c1a] mb-4"></i>
+      <p class="font-semibold">Client Relationship</p>
+    </div>
+    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition">
+      <i class="fas fa-bullseye text-4xl text-[#ff8c1a] mb-4"></i>
+      <p class="font-semibold">Design Centric</p>
+    </div>
+    <div class="bg-gray-300 p-10 rounded-xl shadow-lg text-center hover:scale-105 transition">
+      <i class="fas fa-truck-fast text-4xl text-[#ff8c1a] mb-4"></i>
+      <p class="font-semibold">Fast Delivery</p>
+    </div>
+  </div>
+</section>
+
+<section class="relative">
+  <video autoplay muted loop class="w-full h-[450px] object-cover">
+    <source src="assests/videos/5674342-hd_1920_1080_30fps.mp4">
+  </video>
+  <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white">
+    <h2 class="text-4xl font-bold mb-4">Ready to Build Your Vision?</h2>
+    <p class="mb-6">Let’s turn your ideas into reliable structures.</p>
+    <a href="contact.html" class="bg-[#ff8c1a] px-8 py-3 rounded font-semibold">Request a Quote</a>
+  </div>
+</section>
+<section class="about-testimonial">
+  <div class="testimonial-container">
+
+    <div class="testimonial-image">
+      <img src="assests/images/construction-ganneston-construction.jpg" style="border-radius: 20px; width: 700px; height: 300px;">
+    </div>
+
+    <div class="testimonial-content">
+      <span>What Our Clients Say</span>
+      <p>
+        “From consultation to final handover, the team delivered
+        exceptional quality with transparency and professionalism.”
+      </p>
+      <h4>Project Manager</h4>
+      <small>Commercial Development</small>
+    </div>
+
+  </div>
+</section>
+
+<section class="about-mosaic">
+  <div class="mosaic-container">
+
+    <div class="mosaic-text">
+      <h2>Crafting Spaces,<br><span>Shaping Futures</span></h2>
+      <p>
+        We deliver reliable construction solutions with precision,
+        innovation, and long-term value across residential, commercial,
+        and industrial projects.
+      </p>
+      <a href="services.html" class="btn btn-warning">Our Services</a>
+    </div>
+
+    <div class="mosaic-media">
+      <!-- Video / Image 1 -->
+      <div class="media large">
+        <video autoplay muted loop playsinline>
+          <source src="assests/videos/buildings.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Image / Video 2 -->
+      <div class="media small">
+        <img src="assests/images/ai build.jpg" alt="">
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="about-stats">
+  <div class="stats-container">
+
+    <div class="stats-left">
+      <h2>Built on Experience.<br>Driven by Quality.</h2>
+      <p>
+        With years of industry expertise, our team delivers
+        efficient, safe, and cost-effective construction solutions.
+      </p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <h3>1600+</h3>
+        <p>Projects Delivered</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>98%</h3>
+        <p>Project Success Rate</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>25M+</h3>
+        <p>Client Satisfaction Value</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>Expert</h3>
+        <p>Engineering Team</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="bg-gray-500 text-white py-16">
+  <div class="max-w-9xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold tracking-wide mb-12">
+      SERVICES WE PROVIDE
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+      <!-- Residential -->
+      <div>
+        <img src="assests/images/build.png" class="mx-auto mb-4 w-50" />
+        <h3 class="text-2xl font-bold mb-3">RESIDENTIAL</h3>
+        <p class="text-lg leading-relaxed">
+          Transforming house dreams into reality. Building beautiful and functional homes that reflect your unique style.
+        </p>
+      </div>
+
+      <!-- Commercial -->
+      <div>
+        <img src="assests/images/dual.png" class="mx-auto mb-4 w-50" />
+        <h3 class="text-2xl font-bold mb-3">COMMERCIAL</h3>
+        <p class="text-lg leading-relaxed">
+          Creating spaces that inspire and thrive. Building offices, retail stores, and restaurants that attract customers.
+        </p>
+      </div>
+
+      <!-- Civil -->
+      <div>
+        <img src="assests/images/cable.png" class="mx-auto mb-4 w-50" />
+        <h3 class="text-2xl font-bold mb-3">CIVIL</h3>
+        <p class="text-lg leading-relaxed">
+          Shaping the landscape of our communities. Essential infrastructure like roads, bridges, and others.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="relative">
+  <img src="assests/images/cable bridge.jpg" class="w-full h-[550px] object-cover" />
+
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <div class="absolute top-1/3 left-10 text-white">
+    <h1 class="text-5xl font-bold mb-4">Engineering Solutions</h1>
+    <p class="text-xl mb-6">From concept to completion, we provide expert guidance.</p>
+    <button class="bg-orange-500 px-6 py-3 text-white font-semibold rounded shadow">
+       <a href="contact.html">Consult Now</a>
+    </button>
+  </div>
+</section>
+<section class="py-16 bg-white">
+  <div class="max-w-9xl mx-auto px-4">
+
+    <h2 class="text-orange-500 font-bold text-4xl mb-6">
+      Building the Foundations of Progress
+    </h2>
+
+    <p class="text-gray-700 text-lg leading-relaxed max-w-3xl mb-12">
+      We believe in building strong relationships with our clients based on trust, transparency, and collaboration. We’ve successfully completed a wide range of projects, from small-scale renovations to large-scale infrastructure developments.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="shadow">
+        <img src="assests/images/road.jpg" class="w-full h-52 object-cover rounded-2xl" />
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Transportation Projects</h3>
+          <p class="text-gray-600">We provide comprehensive transportation engineering solutions...</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="shadow">
+        <img src="assests/images/en.jpg" class="w-full h-52 object-cover rounded-2xl" />
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Environmental Projects</h3>
+          <p class="text-gray-600">Our team develops environmental and sustainability-focused designs...</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="shadow">
+        <img src="assests/images/urban.jpg" class="w-full h-52 object-cover rounded-2xl" />
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Urban Development Projects</h3>
+          <p class="text-gray-600">Enhancing city infrastructure with modern planning approaches...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="py-16 bg-white">
+  <div class="max-w-9xl mx-auto px-4">
+
+    <h2 class="text-5xl font-bold text-orange-500 mb-14">Our Expertise</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Card 1 -->
+      <div>
+        <img src="assests/images/sky.png" class="w-full h-64 object-cover rounded-2xl" />
+        <h3 class="text-2xl text-orange-500 font-bold mt-4">
+          Modern Architectural Mastery
+        </h3>
+        <p class="mt-3 text-gray-600">
+          We specialize in creating cutting-edge, functional, and aesthetically pleasing structures.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div>
+        <img src="assests/images/talll build.png" class="w-full h-64 object-cover rounded-2xl" />
+        <h3 class="text-2xl text-orange-500 font-bold mt-4">
+          Design & Build Excellence
+        </h3>
+        <p class="mt-3 text-gray-600">
+          Delivering exceptional results from conception to completion.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div>
+        <img src="assests/images/innovation.png" class="w-full h-64 object-cover rounded-2xl" />
+        <h3 class="text-2xl text-orange-500 font-bold mt-4">
+          Sustainable Building Solutions
+        </h3>
+        <p class="mt-3 text-gray-600">
+          Designing energy-efficient buildings that harmonize with the environment.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<br>
+<section class="relative">
+  <img src="assests/images/sidde view.jpg" class="w-full h-[500px] object-cover" />
+
+  <div class="absolute inset-0 bg-black bg-opacity-0"></div>
+
+  <div class="absolute top-1/3 left-12 text-black">
+    <h2 class="text-5xl text-orange-500 mb-4">Design & Innovation</h2>
+    <p class="text-xl  text-orange-700 leading-relaxed mb-6">
+      We're dedicated to redefining spaces and turning dreams into reality.
+    </p>
+    
+  </div>
+</section>
+<br>
+<section class="relative">
+  <img src="assests/images/Land-Surveying-top-banner.webp"
+       class="w-full h-[450px] sm:h-[550px] object-cover" />
+
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+    
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+      EXPERIENCE QUALITY CONSTRUCTION
+    </h2>
+
+    <p class="text-base sm:text-lg md:text-xl mb-6">
+      Uncompromising Standards, Exceptional Results
+    </p>
+
+    <a href="contact.html"
+       class="bg-orange-500 px-6 py-3 rounded font-semibold shadow">
+      Contact Us
+    </a>
+
+  </div>
+</section>
+
+<br>
+<footer class="footer">
+  <div class="footer-container">
+    <!-- BRAND WITH LOGO -->
+    <div class="brand">
+      <img src="assests/images/logo.jpg" alt="Berkat Engineering Logo">
+      <h2>Berkat Engineering</h2>
+      <p>Building strength and engineering trust through quality construction solutions and professional service
+        excellence.</p>
+      <!-- SOCIAL MEDIA ICONS -->
+      <div class="social">
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SERVICES -->
+    <div>
+      <h3>Services</h3>
+      <ul>
+        <li>Civil & Structural</li>
+        <li>Building Construction</li>
+        <li>M&E Services</li>
+        <li>Infrastructure</li>
+        <li>Project Management</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h3>Contact Info</h3>
+      <ul class="contact">
+        <li><span>📍</span> 123 Construction Avenue<br>Engineering District</li>
+        <li><span>📞</span> +1 (555) 123-4567</li>
+        <li><span>✉️</span> info@berkatengineering.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-line"></div>
+
+ 
+
+  <div class="footer-bottom">
+    © 2024 Berkat Engineering & Construction. All rights reserved.
+  </div>
+    <div class="mentor-section">
+            A member of <a href="mentor.html" target="_blank">MENTOR</a> Group
+        </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  function openMenu() {
+    document.getElementById("navLinks").classList.add("active");
+  }
+  function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+  }
+
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const menu = document.getElementById("mobileMenu");
+  menuBtn.onclick = () => menu.style.right = "0";
+  closeBtn.onclick = () => menu.style.right = "-100%";
+</script>
+<script>
+  function openMenu() {
+    document.getElementById("navLinks").classList.add("active");
+  }
+  function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+  }
+</script>
+
+</body>
+
+</html>

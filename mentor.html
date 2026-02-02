@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mentor Group | Global Presence</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --bg:#0b1220;
+  --bg2:#0e172a;
+  --card:#162447;
+  --gold:#fbbf24;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --radius:16px;
+  --shadow:0 25px 60px rgba(0,0,0,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Roboto',sans-serif;
+  background:linear-gradient(180deg,var(--bg2),var(--bg));
+  color:var(--text);
+  line-height:1.8;
+}
+section{padding:90px 20px}
+.container{max-width:1300px;margin:auto}
+
+/* HERO */
+.hero{
+  padding:120px 20px;
+  background:
+    linear-gradient(rgba(11,18,32,.9),rgba(11,18,32,.95)),
+    url("https://images.unsplash.com/photo-1497366216548-37526070297c") center/cover;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+.hero h1{font-size:46px}
+.hero h1 span.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.hero h1 span.letter.visible {
+  opacity: 1;
+  transform: translateY(0);
+  color: orange;
+}
+.hero h2{font-size:28px;color:var(--gold);margin:20px 0}
+.hero p{color:var(--muted)}
+.hero video{
+  width:100%;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  position: relative;
+  top: 20px;
+}
+
+/* MAP */
+.map-wrapper{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:40px;
+  align-items:flex-start;
+}
+.map {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.map img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.pin{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  width:14px;
+  height:14px;
+  background:var(--gold);
+  border-radius:50%;
+  box-shadow:0 0 0 6px rgba(251,191,36,.35);
+  cursor:pointer;
+}
+
+/* Example: Adjust pin positions based on percentage for responsiveness */
+#pinMY {
+  top: 45%; /* Adjust based on the map image */
+  left: 60%;
+}
+#pinIN {
+  top: 50%;
+  left: 70%;
+}
+
+/* MAP INFO LIST */
+.map-info{
+  background:var(--card);
+  padding:30px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.map-info h3{color:var(--gold);margin-bottom:16px}
+.company-list{
+  list-style:none;
+}
+.company-list li{
+  padding:10px 12px;
+  margin-bottom:8px;
+  background:rgba(255,255,255,.05);
+  border-radius:8px;
+  cursor:pointer;
+  transition:.3s;
+}
+.company-list li:hover{
+  background:rgba(251,191,36,.15);
+  color:var(--gold);
+}
+
+/* CARDS */
+.branches{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+.branch-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:26px;
+  position:relative;
+  box-shadow:var(--shadow);
+}
+.card-icon{
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:70px;height:70px;
+  border-radius:12px;
+  object-fit:cover;
+}
+.branch-card h3{color:var(--gold);padding-right:90px}
+.branch-card p{color:var(--muted);padding-right:90px;font-size:14px}
+.view-more-btn{
+  margin-top:16px;
+  background:var(--gold);
+  border:none;
+  padding:8px 16px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  color:#000;
+}
+
+/* MODAL - UPDATED LAYOUT */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  z-index:999;
+  overflow-y:auto; /* Enable scrolling for the modal */
+}
+.modal.active{display:flex;align-items:center;justify-content:center}
+.modal-box{
+  background:var(--card);
+  max-width:950px;
+  width:90%;
+  margin:auto;
+  border-radius:var(--radius);
+  max-height:90vh;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  box-shadow:var(--shadow);
+}
+.modal-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.modal-content{
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  overflow-y:auto; /* Enable scrolling for content */
+}
+.modal-content h2{color:var(--gold);margin:0;font-size:28px}
+.modal-content p{color:var(--muted);margin:0;line-height:1.7}
+.modal-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+  color:#fff;
+  z-index:1000;
+  background:var(--gold);
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+}
+
+/* FOOTER STYLES - SAME AS ORIGINAL */
+footer{background-color:#ffffffe9;color:rgba(11,11,11,.9);padding:32px 16px;border-top:1px solid rgba(102,126,234,.12);margin-top:40px}
+.footer-grid{max-width:1200px;margin:0 auto 14px;display:grid;grid-template-columns:1fr;gap:24px;align-items:flex-start;text-align:left}
+.footer-brand{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.footer-brand img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-left:25%}
+.footer-brand p{margin:0;font-size:14px;line-height:1.6;color:black;text-align:justify}
+.footer-brand p:first-of-type{font-weight:900;font-size:18px}
+.footer-links-section{width:100%}
+.footer-links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24%}
+.footer-col h4{font-size:14px;color:black;margin-bottom:10px;font-weight:800;letter-spacing:.05em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.footer-col ul li a{color:black;text-decoration:none;font-size:13px;transition:all .3s ease}
+.footer-col ul li a:hover{color:red;text-decoration:underline;transform:translateX(4px)}
+.footer-links-address img{width:70px;height:70px;border-radius:50%;object-fit:cover}
+.footer-links-address h2,.footer-links-address h4{margin-bottom:4px;color:black}
+.footer-links-address h2{font-size:18px}
+.footer-links-address h4{font-size:14px;text-decoration:underline}
+.footer-links-address p{font-size:13px;line-height:1.5;margin-bottom:8px;color:black}
+footer p{font-size:13px;line-height:1.6;color:black}
+.social-icons{display:flex;justify-content:center;gap:14px;margin-top:14px}
+.social-icons a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:rgba(78,86,120,.2);border-radius:50%;color:black;text-decoration:none;font-size:18px;transition:all .3s ease;border:2px solid rgba(83,87,103,.3)}
+.social-icons a:hover{background:#636b92;color:#fff;transform:translateY(-3px);border-color:#474f72}
+.footer-bottom{max-width:1200px;margin:0 auto;text-align:center;color:black;font-size:12px;padding-top:12px}
+.footer-bottom a{color:black;font-weight:600;text-decoration:none}
+@media (max-width:767px){footer{padding:24px 16px}.footer-grid{grid-template-columns:1fr;gap:24px;text-align:left}.footer-brand img{margin:0 auto 10px}.footer-brand p{margin-right:0;width:100%;text-align:left}.footer-links-grid{grid-template-columns:1fr;margin-top:0}.footer-links-address{text-align:left}.social-icons{justify-content:center}}
+@media (min-width:1024px) and (max-width:1279px){footer{padding:40px 32px}.footer-grid{grid-template-columns:1.2fr 1fr 1.1fr;align-items:flex-start}}
+@media (min-width:1280px){footer{padding:48px 40px}.footer-grid{grid-template-columns:1.2fr 1fr 1.1fr;gap:40px}}
+
+/* BERKAT ENGINEERING FOOTER STYLES */
+.footer{
+    background: radial-gradient(circle at top, #0b1220, #020617);
+    color:#cbd5e1;
+    padding:60px 70px 25px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns: 2fr 1fr 1.2fr 1.5fr;
+    gap:50px;
+}
+
+/* BRAND */
+.brand img{
+    width:70px;
+    margin-bottom:10px;
+    transition: 0.3s;
+}
+
+.brand h2{
+    color:#f59e0b;
+    margin:5px 0 12px;
+    font-size:26px;
+}
+
+.brand p{
+    font-size:14px;
+    line-height:1.6;
+    max-width:320px;
+}
+
+/* SOCIAL */
+.social{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.social a{
+    width:45px;
+    height:45px;
+    background:#f59e0b;
+    color:#020617;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:16px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.social a:hover{
+    background:#fb923c;
+    transform:translateY(-3px);
+}
+
+/* HEADINGS */
+.footer h3{
+    color:#f59e0b;
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+/* LISTS */
+.footer ul{
+    list-style:none;
+    padding:0;
+}
+
+.footer ul li{
+    margin-bottom:12px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.footer ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li:hover,
+.footer ul li a:hover{
+    color:#f59e0b;
+}
+
+/* CONTACT */
+.contact li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:14px;
+    font-size:16px;
+}
+
+.contact span{
+    color:#f59e0b;
+    font-size:16px;
+}
+
+/* DIVIDER */
+.footer-line{
+    margin:40px 0 15px;
+    border-top:1px solid #1f2937;
+}
+
+/* BOTTOM */
+.footer-bottom{
+    text-align:center;
+    font-size:18px;
+    color:#94a3b8;
+}
+
+/* MENTOR SECTION */
+.mentor-section{
+    text-align: center;
+    padding: 20px 0;
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+.mentor-section a{
+    color: #f59e0b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.mentor-section a:hover{
+    color: #ffa94d;
+    text-decoration: underline;
+}
+
+/* FOOTER RESPONSIVE */
+@media(max-width:1024px){
+    .footer-container{
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap:30px;
+    }
+    .brand p{
+        font-size:20px;
+    }
+    .footer h3{
+        font-size:20px;
+    }
+}
+
+/* ===== COMPREHENSIVE RESPONSIVE DESIGN ===== */
+
+/* Mobile Devices (320px - 767px) */
+@media (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 40px 15px;
+    }
+    
+    .hero {
+        padding: 80px 15px;
+        text-align: center;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .hero h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .stat-item h3 {
+        font-size: 24px;
+    }
+    
+    .stat-item p {
+        font-size: 12px;
+    }
+    
+    .branches-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .branch-card {
+        padding: 20px;
+    }
+    
+    .branch-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .branch-card p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .map-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .map-container {
+        height: 250px;
+        order: 2;
+    }
+    
+    .map-info {
+        order: 1;
+        padding: 20px;
+    }
+    
+    .map-info h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .map-info p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .modal-box {
+        flex-direction: column;
+        max-width: 95%;
+        max-height: 90%;
+        margin: 20px;
+    }
+    
+    .modal-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    
+    .modal-content h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .modal-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 750px;
+        padding: 0 20px;
+    }
+    
+    section {
+        padding: 60px 20px;
+    }
+    
+    .hero {
+        padding: 100px 20px;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+    }
+    
+    .stat-item h3 {
+        font-size: 28px;
+    }
+    
+    .stat-item p {
+        font-size: 14px;
+    }
+    
+    .branches-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .branch-card {
+        padding: 25px;
+    }
+    
+    .branch-card h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .branch-card p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    
+    .map-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .map-container {
+        height: 350px;
+    }
+    
+    .map-info {
+        padding: 25px;
+    }
+    
+    .map-info h2 {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+    
+    .map-info p {
+        font-size: 16px;
+        margin-bottom: 18px;
+    }
+    
+    .modal-box {
+        max-width: 80%;
+        max-height: 80%;
+    }
+    
+    .modal-image {
+        width: 300px;
+        height: 250px;
+    }
+    
+    .modal-content {
+        padding: 25px;
+        max-height: 400px;
+    }
+    
+    .modal-content h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .modal-content p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
+
+/* Laptops (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 30px;
+    }
+    
+    section {
+        padding: 80px 30px;
+    }
+    
+    .hero {
+        padding: 120px 30px;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 50px;
+        align-items: center;
+    }
+    
+    .hero h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        margin-bottom: 25px;
+    }
+    
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 35px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-top: 50px;
+    }
+    
+    .stat-item h3 {
+        font-size: 32px;
+    }
+    
+    .stat-item p {
+        font-size: 16px;
+    }
+    
+    .branches-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .branch-card {
+        padding: 30px;
+    }
+    
+    .branch-card h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .branch-card p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    
+    .map-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .map-container {
+        height: 400px;
+    }
+    
+    .map-info {
+        padding: 30px;
+    }
+    
+    .map-info h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    
+    .map-info p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .modal-box {
+        max-width: 70%;
+        max-height: 75%;
+    }
+    
+    .modal-image {
+        width: 350px;
+        height: 280px;
+    }
+    
+    .modal-content {
+        padding: 30px;
+        max-height: 450px;
+    }
+    
+    .modal-content h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .modal-content p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+}
+
+/* Desktop (1441px and above) */
+@media (min-width: 1441px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 40px;
+    }
+    
+    section {
+        padding: 100px 40px;
+    }
+    
+    .hero {
+        padding: 140px 40px;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    .hero h1 {
+        font-size: 46px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+    
+    .hero p {
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+    }
+    
+    .stat-item h3 {
+        font-size: 36px;
+    }
+    
+    .stat-item p {
+        font-size: 18px;
+    }
+    
+    .branches-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+    }
+    
+    .branch-card {
+        padding: 35px;
+    }
+    
+    .branch-card h3 {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+    
+    .branch-card p {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    
+    .map-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+    
+    .map-container {
+        height: 450px;
+    }
+    
+    .map-info {
+        padding: 35px;
+    }
+    
+    .map-info h2 {
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+    
+    .map-info p {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .modal-box {
+        max-width: 60%;
+        max-height: 70%;
+    }
+    
+    .modal-image {
+        width: 400px;
+        height: 320px;
+    }
+    
+    .modal-content {
+        padding: 35px;
+        max-height: 500px;
+    }
+    
+    .modal-content h3 {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+    
+    .modal-content p {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+}
+
+/* Ultra-wide screens (1920px and above) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .hero h1 {
+        font-size: 52px;
+    }
+    
+    .hero p {
+        font-size: 24px;
+    }
+    
+    .stat-item h3 {
+        font-size: 40px;
+    }
+    
+    .stat-item p {
+        font-size: 20px;
+    }
+    
+    .branch-card h3 {
+        font-size: 26px;
+    }
+    
+    .branch-card p {
+        font-size: 20px;
+    }
+    
+    .map-info h2 {
+        font-size: 40px;
+    }
+    
+    .map-info p {
+        font-size: 22px;
+    }
+}
+
+/* ===== COMPREHENSIVE MOBILE RESPONSIVENESS ===== */
+
+/* Large tablets and small desktops */
+@media(max-width:1024px) {
+  .container {
+    max-width: 95%;
+    padding: 0 15px;
+  }
+  
+  .hero {
+    padding: 100px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 38px;
+  }
+  
+  .hero-grid {
+    gap: 40px;
+  }
+  
+  .branch-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+/* Tablets */
+@media(max-width:900px) {
+  .hero {
+    padding: 80px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 34px;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .branch-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .branch-card {
+    padding: 25px 20px;
+  }
+}
+
+/* Mobile phones and small tablets */
+@media(max-width:768px) {
+  /* Content */
+  .container {
+    padding: 0 10px;
+  }
+  
+  section {
+    padding: 60px 15px;
+  }
+  
+  .hero {
+    padding: 80px 15px;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .branch-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .branch-card {
+    padding: 25px 20px;
+    text-align: center;
+  }
+  
+  .branch-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+  
+  .branch-card p {
+    font-size: 13px;
+    padding-right: 0;
+  }
+  
+  .card-icon {
+    position: static;
+    margin: 0 auto 15px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .view-more-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+    margin-top: 15px;
+  }
+  
+  /* Map Section */
+  .map-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .map-container {
+    height: 250px;
+  }
+  
+  /* Modal Responsiveness */
+  .modal-box {
+    grid-template-columns: 1fr;
+    width: 95%;
+    max-height: 85vh;
+    margin: 20px;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .modal-content {
+    padding: 25px 20px;
+    overflow-y: auto;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .modal h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .modal p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .close-modal {
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px 15px 20px;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: left;
+  }
+  
+  .brand img {
+    width: 50px;
+  }
+  
+  .brand h1 {
+    font-size: 18px;
+  }
+  
+  .brand p {
+    font-size: 14px;
+  }
+  
+  .footer h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Small mobile phones */
+@media(max-width:480px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+  
+  .hero p {
+    font-size: 13px;
+  }
+  
+  section {
+    padding: 40px 10px;
+  }
+  
+  .branch-card {
+    padding: 20px 15px;
+  }
+  
+  .branch-card h3 {
+    font-size: 16px;
+  }
+  
+  .branch-card p {
+    font-size: 12px;
+  }
+  
+  .modal-box {
+    width: 98%;
+    margin: 10px;
+  }
+  
+  .modal-content {
+    padding: 20px 15px;
+  }
+  
+  .modal-image {
+    height: 150px;
+  }
+}
+
+/* Landscape mobile phones */
+@media(max-width:768px) and (orientation: landscape) {
+  .hero {
+    padding: 60px 15px;
+  }
+  
+  .hero h1 {
+    font-size: 26px;
+  }
+  
+  .modal-box {
+    max-height: 90vh;
+  }
+}
+</style>
+</head>
+<body>
+<!-- HERO -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<h1 id="heroTitle">Who We Are.......?</h1>
+<h2>Mentor Group Profile</h2>
+<p>The Mentor Group is a founded in 2008 by prominent business entrepreneurs known for its strong ethics and presence in over 3 countries across diverse sectors like</p>
+<p>Staffing and Payroll Services (Mentor Consultancy) Visa and Immigration Services (Mentor Immigration), Study and Internships (Mentor Academy), Engineering and Construction (Berkat Engineering), Hospitality and Customer service (MY DD Services), IT (Nestwork Business), Headquartered in Kuala Lumpur, Malaysia the group is unique as its promoters are from Malaysia, India and Sri Lanka, is majority-owned by.</p>
+</div>
+<video src="assests/videos/about video.mp4"  controls autoplay loop></video>
+<!-- <img src="assets/images/about.jpg" alt="About Mentor Group"> -->
+</div>
+</section>
+
+<!-- MAP -->
+<section>
+<div class="container map-wrapper">
+<div class="map">
+<img id="mapImage" src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
+<div class="pin" id="pinMY" title="Malaysia"></div>
+<div class="pin" id="pinIN" title="India"></div>
+</div>
+<div class="map-info" id="mapInfo">
+<h3>Click a location</h3>
+<p class="muted">Select a pin to view companies</p>
+</div>
+</div>
+</section>
+
+<!-- BRANCH CARDS -->
+<section>
+<div class="container">
+<div class="branches">
+<div class="branch-card">
+<img class="card-icon" src="assests/images/mcs.jpg" alt="Mentor Consultancy">
+<h3>Mentor Consultancy Services</h3>
+<p>📍 Malaysia | 📍 India</p>
+<button class="view-more-btn" data-key="consultancy">View More</button>
+</div>
+<div class="branch-card">
+<img class="card-icon" src="assests/images/ac1.png" alt="Mentor Academy">
+<h3>Mentor Academy</h3>
+<p>📍 Malaysia</p>
+<button class="view-more-btn" data-key="academy">View More</button>
+</div>
+<div class="branch-card">
+<img class="card-icon" src="assests/images/mis.jpg" alt="Mentor Immigration">
+<h3>Mentor Immigration Services</h3>
+<p>📍 Malaysia</p>
+<button class="view-more-btn" data-key="immigration">View More</button>
+</div>
+<div class="branch-card">
+<img class="card-icon" src="assests/images/image.png" alt="Berkat Engineering">
+<h3>Berkat Engineering & Construction</h3>
+<p>📍 Malaysia</p>
+<button class="view-more-btn" data-key="berkat">View More</button>
+</div>
+<div class="branch-card">
+<img class="card-icon" src="assests/images/dd.jpg" alt="MY DD Services">
+<h3>MY DD Services</h3>
+<p>📍 Malaysia</p>
+<button class="view-more-btn" data-key="dd">View More</button>
+</div>
+<div class="branch-card">
+<img class="card-icon" src="assests/images/nest.jpeg" alt="Nestwork Business">
+<h3>Nestwork Business Solutions</h3>
+<p>📍 India</p>
+<button class="view-more-btn" data-key="nestwork">View More</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MODAL - SPLIT LAYOUT -->
+<div class="modal" id="modal">
+<span class="modal-close" id="modalClose">✕</span>
+<div class="modal-box">
+<img class="modal-image" id="modalImage" src="" alt="">
+<div class="modal-content" id="modalContent"></div>
+</div>
+</div>
+
+<footer class="footer">
+    
+    <div class="footer-container">
+        <!-- BRAND WITH LOGO -->
+        <div class="brand">
+            <img src="logo.png" alt="Berkat Engineering Logo">
+            <h2>Berkat Engineering</h2>
+            <p style="color: #fff;">Building strength and engineering trust through quality construction solutions and professional service excellence.</p>
+            <!-- SOCIAL MEDIA ICONS -->
+            <div class="social">
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- SERVICES -->
+        <div>
+            <h3>Services</h3>
+            <ul>
+                <li>Civil & Structural</li>
+                <li>Building Construction</li>
+                <li>M&E Services</li>
+                <li>Infrastructure</li>
+                <li>Project Management</li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div>
+            <h3>Contact Info</h3>
+            <ul class="contact">
+                <li><span>📍</span> 123 Construction Avenue<br>Engineering District</li>
+                <li><span>📞</span> +1 (555) 123-4567</li>
+                <li><span>✉️</span> info@berkatengineering.com</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    <div class="mentor-section">
+        A member of <a href="#" target="_blank">MENTOR</a> Group
+    </div>
+
+    <div class="footer-bottom">
+        © 2024 Berkat Engineering & Construction. All rights reserved.
+    </div>
+</footer>
+
+<script>
+/* MAP PIN POSITION */
+function placePin(pin,lat,lon){
+  const img=document.getElementById("mapImage");
+  pin.style.left=((lon+180)/360)*img.clientWidth+"px";
+  pin.style.top=((90-lat)/180)*img.clientHeight+"px";
+}
+let mapLoaded=false;
+function initMap(){if(mapLoaded)return;const img=document.getElementById("mapImage");if(img.complete){placePin(document.getElementById("pinMY"),3.1390,101.6869);placePin(document.getElementById("pinIN"),17.3850,78.4867);mapLoaded=true}}
+document.getElementById("mapImage").onload=initMap;window.onresize=initMap;
+
+/* COMPANY DATA WITH CDN IMAGES */
+const companyData={
+  consultancy:{
+    title:"Mentor Consultancy Services",
+    img:"assests/images/mcs.jpg",
+    text:"Mentor Consultancy is having a outstanding experience in the areas of Placement Services, Internships and also in Training and development too.<br> Since its inception in 2008 in Malaysia and in 2023 in India; has sets its sights to being a go-to-global recruitment player both in permanent and contracting businesses. <br> Mentor Consultancy aims to give their clients end-to-end services including staffing, employment, human resources management and more. We are BEST solutions provider with 15+ years of experience and understand the needs of each clients specific needs. We set ourselves apart by warm, personal approach to connecting people to opportunities that will ensure that every client and skilled worker’s experience of engaging their services would be pleasant. <br> For more information please click here or write to helpdesk@mentorservices.com.my" 
+
+  },
+  academy:{
+    title:"Mentor Academy",
+    img:"assests/images/ac1.png",
+    text:"Mentor Academy was founded in 2012 and it is committed to designing the best educational pathway for our students, each one leading to a successful career ahead. <br> Our dedicated team of education consultants works hard to ensure students achieve their maximum potential in their choice of study fields. Even as we work hand-in-hand with reputable partner varsities to make a wider range of quality courses available, we are also buddies to every student that comes to us, ensuring we put their study requirements first and foremost. <br> For more information please click here or write to helpdesk@mentoracademy.com.my"
+  },
+  immigration:{
+    title:"Mentor Immigration Services",
+    img:"assests/images/mis.jpg",
+    text:"MENTOR IMMIGRATION SERVICES (A Division of Mentor Consultancy) founded in 2010 by a team is comprised of qualified migration consultants, with experience in handling immigration to multiple countries with a pooled work history of over 15 years, to extend our continuous support to foreign skilled and un skilled workers as well. <br> Our well-established Immigration Practice provides advice and assistance on all areas of immigration and nationality laws.  The team's knowledge of immigration procedures is based on technical understanding of specialist immigration law, complemented by strong practical experience, which collectively provide our clients with a comprehensive and strategic service, invaluable in guiding them to the best immigration solutions achievable. <br> For more information please click here or write to helpdesk@mentorimmigration.com.my"
+  },
+  berkat:{
+    title:"Berkat Engineering & Construction",
+    img:"assests/images/image.png",
+    text:"Berkat company founded in 2018 by Well Experienced Engineers in Malaysia. We forward-thinking engineering company committed to delivering innovative, reliable, and sustainable engineering solutions both in Public and Pvt Sectors. With a strong foundation in technical excellence and industry best practices, we support businesses across diverse sectors by transforming ideas into practical, high-performance outcomes. <br> Our team of experienced engineers, designers, and project specialists works collaboratively to deliver end-to-end engineering services—from concept and design to execution, optimization, and ongoing support. We focus on quality, safety, and efficiency in every project, ensuring results that meet both regulatory standards and client expectations. <br> For more information please click here or write to helpdesk@berkatengineering.com.my"
+  },
+  dd:{
+    title:"MY DD Services",
+    img:"assests/images/dd.jpg",
+    text:"MY DD Services founded in 2018 by Social Oriented Care takers, in Malaysia who is having a wide range of skills in Hospitality, Care Taker, House Keeping and Cleaning sectors like Industrial and Domestic work domains. <br> We provide comprehensive hospitality solutions designed to deliver exceptional guest experiences, operational excellence, and sustainable business growth. From luxury stays to personalized services, we ensure comfort, quality, and consistency at every touchpoint. <br> For more information please click here or write to helpdesk@myddservices.com.my"
+  },
+  nestwork:{
+    title:"Nestwork Business Solutions",
+    img:"assests/images/nest.jpeg",
+    text:"Nestwork Business Solutions, was incorporated in 2025 being a start-up company in Hyderabad, India. Though its start up company But the Founders are having a long lasting experience in Staffing and Payroll services as well in to IT Training and Projects. We also having deep expertise in HRMS & Payroll, DevOps & Cloud, Software Development, AI & ML Product Development, Data Analytics & Business Intelligence, IT Support & Managed Services, Cyber-Security & Risk Management. we partner with businesses to navigate the complexities of tomorrow. <br> Our aim to deliver intelligent, scalable, and outcome-driven solutions that drive productivity, resilience and growth. We combine the agility of a forward-looking consultancy with the technical depth of an enterprise service provider — helping your organisation operate smarter, faster and more securely. <br> For more information please click here or write to helpdesk@nestworkbusiness.com"
+  }
+};
+
+/* MODAL ELEMENTS */
+const modal=document.getElementById('modal');
+const modalImage=document.getElementById('modalImage');
+const modalContent=document.getElementById('modalContent');
+const modalClose=document.getElementById('modalClose');
+
+/* OPEN MODAL - SPLIT LAYOUT */
+function openCompany(key){
+  const d=companyData[key];
+  modalImage.src=d.img;
+  modalImage.alt=d.title;
+  modalContent.innerHTML=`<h2>${d.title}</h2><p>${d.text}</p>`;
+  modal.classList.add("active");
+}
+
+/* CLOSE MODAL */
+function closeModal(){modal.classList.remove('active')}
+
+/* EVENT LISTENERS */
+document.querySelectorAll(".view-more-btn").forEach(btn=>btn.onclick=()=>openCompany(btn.dataset.key));
+modalClose.onclick=closeModal;
+modal.onclick=e=>{if(e.target===modal)closeModal()};
+
+/* MAP PINS */
+document.getElementById("pinMY").onclick=()=>{
+  document.getElementById("mapInfo").innerHTML=`<h3>Malaysia Companies</h3><ul class="company-list"><li onclick="openCompany('consultancy')">Mentor Consultancy Services</li><li onclick="openCompany('academy')">Mentor Academy</li><li onclick="openCompany('immigration')">Mentor Immigration Services</li><li onclick="openCompany('berkat')">Berkat Engineering & Construction</li><li onclick="openCompany('dd')">MY DD Services</li></ul>`;
+};
+document.getElementById("pinIN").onclick=()=>{
+  document.getElementById("mapInfo").innerHTML=`<h3>India Companies</h3><ul class="company-list"><li onclick="openCompany('nestwork')">Nestwork Business Solutions</li><li onclick="openCompany('consultancy')">Mentor Consultancy Services</li></ul>`;
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+  var h1 = document.getElementById('heroTitle');
+  if (!h1) return;
+  var text = h1.textContent;
+  h1.innerHTML = '';
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+    span.className = 'letter';
+    if (text[i] === ' ') span.style.width = '0.6em';
+    h1.appendChild(span);
+  }
+  const letters = h1.querySelectorAll('.letter');
+  letters.forEach((span, i) => {
+    setTimeout(() => {
+      span.classList.add('visible');
+    }, 80 * i);
+  });
+});
+</script>
+<script src="assets/images/script.js"></script>
+
+
+</body>
+</html>
