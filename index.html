@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home | Berkat Engineering & Construction</title>
+    <title>Berkat Engineering & Construction</title>
    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -61,12 +61,12 @@
             height:72px;
         }
 
-        .logo a {
+        .logo a{
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: 0.3s ease;
         }
 
-        .logo a:hover {
+        .logo a:hover{
             transform: scale(1.05);
         }
 
@@ -113,9 +113,8 @@
             font-size:28px;
             color:#fff;
             cursor:pointer;
-           
         }
-       
+
         /* CLOSE BUTTON */
         .close-btn{
             display:none;
@@ -126,6 +125,7 @@
             color:#fff;
             cursor:pointer;
         }
+
        
         /* ===== HERO SECTION (MAIN BANNER) ===== */
         .hero {
@@ -157,7 +157,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.34), rgba(2, 6, 23, 0.515));
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(2, 6, 23, 0.7));
             z-index: -1;
         }
        
@@ -1073,6 +1073,50 @@
             font-size: 1rem;
         }
        
+        /* Value Item Hover Image */
+        .value-item {
+            position: relative;
+            overflow: hidden;
+        }
+       
+        .value-hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1;
+            border-radius: 15px;
+        }
+       
+        .value-item:hover .value-hover-image {
+            opacity: 0.9;
+        }
+       
+        .value-item:hover .value-icon,
+        .value-item:hover h4,
+        .value-item:hover p {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+       
+        .value-item:hover .value-icon {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+       
+        .value-item:hover .value-icon i {
+            color: #fff;
+        }
+       
         /* About Extended Mobile Responsive */
         @media (max-width: 768px) {
             .vm-grid {
@@ -1186,7 +1230,14 @@
             cursor:pointer;
         }
 
-        .footer ul li:hover{
+        .footer ul li a{
+            color:#cbd5e1;
+            text-decoration:none;
+            transition:0.3s ease;
+        }
+
+        .footer ul li:hover,
+        .footer ul li a:hover{
             color:#f59e0b;
         }
 
@@ -1811,18 +1862,6 @@
             backdrop-filter: blur(10px);
         }
        
-        .click-indicator {
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            display: inline-block;
-        }
-       
         .project-card {
             cursor: pointer;
         }
@@ -2378,21 +2417,6 @@
             }
             .close-btn{
                 display:block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                background: rgba(245, 158, 11, 0.1);
-                transition: all 0.3s ease;
-            }
-            .close-btn:hover {
-                background: rgba(245, 158, 11, 0.2);
-                transform: scale(1.1);
             }
            
             /* Hero Section */
@@ -2743,6 +2767,59 @@ footer {
   overflow-x: hidden;
 }
 
+/* ======================================================NEW SKYLINE SECTION CSS====================================================== */
+.skyline-banner {
+width: 100%;
+height: 450px;
+background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+padding: 0 10%;
+position: relative;
+}
+
+.skyline-content {
+max-width: 600px;
+}
+
+.skyline-content h2 {
+font-size: 4.5rem;
+font-weight: 700;
+color: #000;
+line-height: 1.1;
+margin-bottom: 2rem;
+}
+
+.skyline-btn {
+display: inline-block;
+background-color: #ff9f1c;
+color: #fff;
+padding: 15px 40px;
+text-decoration: none;
+font-weight: 600;
+border-radius: 8px;
+font-size: 1.1rem;
+transition: 0.3s;
+}
+
+.skyline-btn:hover {
+background-color: #e68a00;
+transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+.skyline-banner {
+height: 350px;
+padding: 0 5%;
+}
+.skyline-content h2 {
+font-size: 2.8rem;
+}
+}
+/* ====================================================== */
+
 /* ======================================================
    FOOTER FIX
    ====================================================== */
@@ -2822,7 +2899,7 @@ body > * {
                         <p>With a strong focus on engineering accuracy and practical execution, we aim to meet client expectations through disciplined project management and skilled workmanship.</p>
                     </div>
                     <div class="overview-image">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional Construction Team" />
+                        <img src="https://images.pexels.com/photos/14755493/pexels-photo-14755493.jpeg" alt="Professional Construction Team" />
                     </div>
                 </div>
             </div>
@@ -2830,7 +2907,7 @@ body > * {
             <div class="experience-approach">
                 <div class="approach-grid">
                     <div class="approach-image">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construction Excellence" />
+                        <img src="https://images.pexels.com/photos/16629084/pexels-photo-16629084.jpeg" alt="Construction Excellence" />
                     </div>
                     <div class="approach-content">
                         <h3>What We Do</h3>
@@ -2851,7 +2928,7 @@ body > * {
                 <div class="vm-grid">
                     <div class="vm-card">
                         <div class="vm-image">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Vision" />
+                            <img src="https://images.pexels.com/photos/27523245/pexels-photo-27523245.jpeg" alt="Our Vision" />
                         </div>
                         <div class="vm-content">
                             <div class="vm-icon">
@@ -2860,14 +2937,15 @@ body > * {
                             <h3>Our Vision</h3>
                             <div class="mission-points">
                                 <p><i class="fas fa-check"></i> To be recognized as a trusted and reliable construction partner</p>
-                                <p><i class="fas fa-check"></i> To maintain excellence in safety, quality, and project execution</p>
-                                <p><i class="fas fa-check"></i> To adopt modern technology and innovative construction practices</p>
-                            </div></div>
+                                <p><i class="fas fa-check"></i>To maintain excellence in safety, quality, and project execution </p>
+                                <p><i class="fas fa-check"></i>To contribute to sustainable and long-term infrastructure development </p>
+                            </div>
+                        </div>
                     </div>
                    
                     <div class="vm-card">
                         <div class="vm-image">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Mission" />
+                            <img src="https://images.pexels.com/photos/29478677/pexels-photo-29478677.jpeg" alt="Our Mission" />
                         </div>
                         <div class="vm-content">
                             <div class="vm-icon">
@@ -2884,7 +2962,7 @@ body > * {
 
                     <div class="vm-card">
                         <div class="vm-image">
-                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Our Commitment" />
+                            <img src="https://images.pexels.com/photos/18315564/pexels-photo-18315564.jpeg" alt="Our Commitment" />
                         </div>
                         <div class="vm-content">
                             <div class="vm-icon">
@@ -2906,6 +2984,7 @@ body > * {
                 <h3 class="values-title">What We Stand For</h3>
                 <div class="values-grid">
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/20678322/pexels-photo-20678322.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
@@ -2914,6 +2993,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/8488008/pexels-photo-8488008.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-award"></i>
                         </div>
@@ -2922,6 +3002,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/10246146/pexels-photo-10246146.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
@@ -2930,6 +3011,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/4966809/pexels-photo-4966809.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-clock"></i>
                         </div>
@@ -2938,6 +3020,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/8910196/pexels-photo-8910196.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-users"></i>
                         </div>
@@ -2946,6 +3029,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/20987848/pexels-photo-20987848.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-lightbulb"></i>
                         </div>
@@ -2954,6 +3038,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/4254160/pexels-photo-4254160.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-leaf"></i>
                         </div>
@@ -2962,6 +3047,7 @@ body > * {
                     </div>
                    
                     <div class="value-item">
+                        <div class="value-hover-image" style="background-image: url('https://images.pexels.com/photos/29332579/pexels-photo-29332579.jpeg');"></div>
                         <div class="value-icon">
                             <i class="fas fa-star"></i>
                         </div>
@@ -3045,7 +3131,7 @@ body > * {
                
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="assests/images/ai build.jpg" alt="Building Construction" />
+                        <img src="https://images.pexels.com/photos/30263425/pexels-photo-30263425.jpeg" alt="Building Construction" />
                         <div class="service-overlay">
                             <div class="service-badge">
                                 <i class="fas fa-home"></i>
@@ -3111,7 +3197,7 @@ body > * {
                
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Renovation & Maintenance" />
+                        <img src="https://images.pexels.com/photos/11953905/pexels-photo-11953905.jpeg" alt="Renovation & Maintenance" />
                         <div class="service-overlay">
                             <div class="service-badge">
                                 <i class="fas fa-tools"></i>
@@ -3196,9 +3282,6 @@ body > * {
                                 <span class="project-category">Residential</span>
                                 <h4>Luxury Villa Complex</h4>
                                 <p>Premium residential development with modern amenities</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3222,9 +3305,6 @@ body > * {
                                 <span class="project-category">Commercial</span>
                                 <h4>Corporate Office Tower</h4>
                                 <p>Modern 15-story office building with smart systems</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3248,9 +3328,6 @@ body > * {
                                 <span class="project-category">Industrial</span>
                                 <h4>Manufacturing Plant</h4>
                                 <p>Large-scale industrial facility with advanced systems</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3274,9 +3351,6 @@ body > * {
                                 <span class="project-category">Infrastructure</span>
                                 <h4>Highway Bridge</h4>
                                 <p>Major infrastructure project connecting two cities</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3300,9 +3374,6 @@ body > * {
                                 <span class="project-category">Residential</span>
                                 <h4>Apartment Complex</h4>
                                 <p>Modern residential towers with community facilities</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3326,9 +3397,6 @@ body > * {
                                 <span class="project-category">Commercial</span>
                                 <h4>Shopping Mall</h4>
                                 <p>Multi-level retail and entertainment complex</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3352,9 +3420,6 @@ body > * {
                                 <span class="project-category">Residential</span>
                                 <h4>Townhouse Complex</h4>
                                 <p>Modern townhouses with private gardens</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3378,9 +3443,6 @@ body > * {
                                 <span class="project-category">Commercial</span>
                                 <h4>Business Park</h4>
                                 <p>Multi-tenant office and retail complex</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3404,9 +3466,6 @@ body > * {
                                 <span class="project-category">Industrial</span>
                                 <h4>Warehouse Facility</h4>
                                 <p>Large-scale storage and distribution center</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3430,9 +3489,6 @@ body > * {
                                 <span class="project-category">Residential</span>
                                 <h4>Luxury Condos</h4>
                                 <p>High-rise condominium development</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3456,9 +3512,6 @@ body > * {
                                 <span class="project-category">Industrial</span>
                                 <h4>Factory Complex</h4>
                                 <p>Automotive parts manufacturing facility</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3482,9 +3535,6 @@ body > * {
                                 <span class="project-category">Infrastructure</span>
                                 <h4>Metro Station</h4>
                                 <p>Underground transit hub construction</p>
-                                <div class="click-indicator">
-                                    <i class="fas fa-eye"></i> View Details
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -3836,8 +3886,12 @@ body > * {
         });
     </script>
 
-   
-   
+    <section class="skyline-banner">
+        <div class="skyline-content">
+            <h2>Redefining<br>The Skyline</h2>
+            <a href="project.html" class="skyline-btn">View Projects</a>
+        </div>
+    </section>
 
 <footer class="footer">
   <div class="footer-container">
@@ -3856,11 +3910,11 @@ body > * {
     <div>
       <h3>Quick Links</h3>
       <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Services</li>
-        <li>Projects</li>
-        <li>Contact</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
 
