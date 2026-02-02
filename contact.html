@@ -935,6 +935,12 @@ header{
     <form action="#" method="post">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" 
+             name="phone" 
+             placeholder="Your Phone Number (e.g. +91 9876543210)" 
+             pattern="[+]?[0-9\s]{10,15}" 
+             title="Please enter a valid phone number (minimum 10 digits)"
+             required>
       <input type="text" name="subject" placeholder="Subject" required>
       <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
@@ -1061,4 +1067,5 @@ function closeMenu(){
 
 
 </body>
+
 </html>
