@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Berkat Engineering & Construction</title>
+  <title>About Us | Berkat Engineering & Construction</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -196,6 +197,15 @@
       height: 72px;
     }
 
+    .logo a{
+      display: inline-block;
+      transition: 0.3s ease;
+    }
+
+    .logo a:hover{
+      transform: scale(1.05);
+    }
+
     /* NAV LINKS */
     .nav-links {
       display: flex;
@@ -368,7 +378,14 @@
       cursor: pointer;
     }
 
-    .footer ul li:hover {
+    .footer ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .footer ul li:hover,
+    .footer ul li a:hover {
       color: #f59e0b;
     }
 
@@ -545,7 +562,9 @@ html, body {
   <div class="navbar">
     <!-- LOGO -->
     <div class="logo">
-      <img src="assests/images/logo.jpg" alt="Logo">
+      <a href="index.html">
+        <img src="assests/images/logo.jpg" alt="Logo">
+      </a>
     </div>
 
     <!-- HAMBURGER -->
@@ -927,11 +946,11 @@ We offer end-to-end construction solutions designed to bring your vision to life
     <div>
       <h3>Quick Links</h3>
       <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Services</li>
-        <li>Projects</li>
-        <li>Contact</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
 
